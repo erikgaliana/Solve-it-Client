@@ -24,12 +24,16 @@ class MyProblems extends Component {
         const { user } = this.state;
         return (
             <div>
-                <h1>hello ya have a lot ogf MyProblems</h1>
+                <h1>Welcome to solve it</h1>
+                <h2> your posted problems</h2>
                 {
                     user.myproblems ?
                     user.myproblems.map((oneproblem)=> {
                             return (
+                                <div className='problem'>
                                 <p>{oneproblem.text}</p>
+                                <p>solutions : {oneproblem.problemanswers.length}</p>
+                                </div>
                             )
                     })
                     :
