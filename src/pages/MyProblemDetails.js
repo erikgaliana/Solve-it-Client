@@ -62,7 +62,7 @@ class MyProblemDetails extends Component {
                                 
                                 <div className='answer' key={oneanswer._id}>
 
-                                <Link to={`/MyProblems/details/${id}/AnswerDetails/${oneanswer._id}`}>
+                                <Link to={`/MyProblems/details/${id}/AnswerDetails/${oneanswer._id}`} className="text-link">
                                 <p>{oneanswer.text}</p>
                                
                                  </Link> 

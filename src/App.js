@@ -9,6 +9,7 @@ import Navbar from './components/Navbar';
 import MyProblems from './pages/MyProblems';
 import MyProblemDetails from './pages/MyProblemDetails';
 import AnswerDetails from './pages/AnswerDetails';
+import ProblemsToSolve from './pages/ProblemsToSolve';
 
 
 import AnonRoute from './components/AnonRoute';
@@ -27,7 +28,7 @@ class App extends Component {
           <PrivateRoute exact path="/MyProblems" component={MyProblems} />
           <PrivateRoute exact path="/MyProblems/details/:id" component={MyProblemDetails} />
           <PrivateRoute exact path="/MyProblems/details/:id/AnswerDetails/:AnsId" component={AnswerDetails} />
-         
+          <PrivateRoute exact path="/ProblemsToSolve" component={ProblemsToSolve} />
 
         </Switch>
       </div>

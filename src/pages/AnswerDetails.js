@@ -57,14 +57,14 @@ class AnswerDetails extends Component {
                     }
                 </h4>
                     <div className='answer' >
-                    <p>{
+                    <p>Answer :{
                     user.myproblems ?
                     getAnswer(id,user,AnsId).text
                     :
                     <p>loading</p>
                     }
                     </p>
-                    <p>{
+                    <p> Picture :{
                     user.myproblems ?
                     getAnswer(id,user,AnsId).pic
                     :

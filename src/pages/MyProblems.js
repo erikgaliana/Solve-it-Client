@@ -38,9 +38,10 @@ class MyProblems extends Component {
                                 
                                 <div className='problem' key={oneproblem._id}>
 
-                                <Link to={`/MyProblems/details/${oneproblem._id}`}>
-                                <p>{oneproblem.text}</p>
-                                <p>solutions : {oneproblem.problemanswers.length}</p>
+                                <Link to={`/MyProblems/details/${oneproblem._id}`} className="text-link">
+                                <p>Category : {oneproblem.category}</p>
+                                <p>Problem :{oneproblem.text}</p>
+                                <p>Answers : {oneproblem.problemanswers.length}</p>
                                 </Link>
                                 </div>
                             )
