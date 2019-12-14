@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 import userService from '../lib/user-service';
 import { withAuth } from '../lib/AuthProvider';
@@ -6,12 +7,13 @@ import { withAuth } from '../lib/AuthProvider';
 
 class MyProblems extends Component {
     state = {
-        user:{}
+        user:{},
+        
     }
 
     componentDidMount (){
         
-        console.log(this.props.user._id);
+        
         const id  = this.props.user._id;
         userService.getOneById(id)
         .then ((oneUser)=>{
@@ -20,8 +22,11 @@ class MyProblems extends Component {
         .catch ((err) => console.log(err));
     }
     
+    
     render() {
         const { user } = this.state;
+        
+        
         return (
             <div>
                 <h1>Welcome to solve it</h1>
@@ -30,9 +35,13 @@ class MyProblems extends Component {
                     user.myproblems ?
                     user.myproblems.map((oneproblem)=> {
                             return (
-                                <div className='problem'>
+                                
+                                <div className='problem' key={oneproblem._id}>
+
+                                <Link to={`/MyProblems/details/${oneproblem._id}`}>
                                 <p>{oneproblem.text}</p>
                                 <p>solutions : {oneproblem.problemanswers.length}</p>
+                                </Link>
                                 </div>
                             )
                     })
