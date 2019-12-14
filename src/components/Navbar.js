@@ -11,8 +11,15 @@ class Navbar extends Component {
         {isLoggedin ? (
           <div>
             <p>username: {user.username}</p>
-            <button onClick={logout}>Logout</button>
-          </div>
+            <button onClick={logout}>Logout</button><br />
+
+            <br />
+             <Link to="/MyProblems">
+              {' '}
+              <button>My Problems</button>{' '}
+            </Link>
+            </div>
+
         ) : (
           <div>
             <Link to="/login">
