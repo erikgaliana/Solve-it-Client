@@ -29,7 +29,7 @@ class ProblemsToSolve extends Component {
 
         return (
             <div>
-            <h2> problems to solve </h2>
+            <h1> Problems to solve </h1>
                 {
                     user.problemstosolve ?
                     user.problemstosolve.map((oneproblem)=> {

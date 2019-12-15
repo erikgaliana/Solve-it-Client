@@ -45,17 +45,20 @@ class MyProblemDetails extends Component {
             <div>
 
              
-                <h1>inside my problem details</h1>
-                <h4>
+                <h2>My problem asked is :</h2>
+                
+                <h3>
                     {
                     user.myproblems ?
                     getProblem(id,user).text
                     :
                     <p>loading</p>
                     }
-                    </h4>
+                    </h3>
+                    <hr></hr>
+                    <h3>Answers proposed</h3>
                     {
-
+                       
                 user.myproblems ?
                 getProblem(id,user).problemanswers.map((oneanswer)=> {
                             return (
@@ -63,7 +66,7 @@ class MyProblemDetails extends Component {
                                 <div className='answer' key={oneanswer._id}>
 
                                 <Link to={`/MyProblems/details/${id}/AnswerDetails/${oneanswer._id}`} className="text-link">
-                                <p>{oneanswer.text}</p>
+                                <p>Answer : {oneanswer.text}</p>
                                
                                  </Link> 
                                 </div>
@@ -74,6 +77,10 @@ class MyProblemDetails extends Component {
 
 
                 }
+
+                
+
+
             </div>
         )
     }

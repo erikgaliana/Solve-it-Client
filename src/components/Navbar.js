@@ -27,6 +27,10 @@ class Navbar extends Component {
               {' '}
               <button>Problems to Solve</button>{' '}
             </Link>
+            <Link to="/UserProfile">
+              {' '}
+              <button>User Profile</button>{' '}
+            </Link>
             </div>
 
         ) : (

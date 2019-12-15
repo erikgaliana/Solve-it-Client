@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { withAuth } from '../lib/AuthProvider';
 import userService from '../lib/user-service';
-
+import { Link } from 'react-router-dom';
 
 function getProblem(id,user) {
     const result= user.myproblems.find(element => element._id=== id);
@@ -46,18 +46,20 @@ class AnswerDetails extends Component {
 
         return (
             <div>
-                <h1>Inside answerdetails</h1>
-
-                <h4>
+               
+                <h3>My problem asked is : </h3>
+                <h3> 
                     {
                     user.myproblems ?
                     getProblem(id,user).text
                     :
                     <p>loading</p>
                     }
-                </h4>
+                </h3>
+                <hr></hr>
+                <h3> Answer Details</h3>
                     <div className='answer' >
-                    <p>Answer :{
+                    <p>Answer details :{
                     user.myproblems ?
                     getAnswer(id,user,AnsId).text
                     :
@@ -72,8 +74,18 @@ class AnswerDetails extends Component {
                     }
                     </p>
                     </div>
-
-
+                    <div>
+                    <Link to={`/UserProfile`}>
+                         {' '}
+                        <button>Add to Problems Solved</button>{' '}
+                     </Link>
+                    </div>
+                    <div>
+                    <Link to={`/MyProblems/details/${id}`}>
+                         {' '}
+                        <button>Discard</button>{' '}
+                     </Link>
+                    </div>
 
             </div>
         )

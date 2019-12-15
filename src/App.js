@@ -12,10 +12,11 @@ import AnswerDetails from './pages/AnswerDetails';
 import ProblemsToSolve from './pages/ProblemsToSolve';
 import ProblemToSolveDetails from './pages/ProblemToSolveDetails';
 import AskProblem from './pages/AskProblem';
-
+import UserProfile from './pages/UserProfile';
 
 import AnonRoute from './components/AnonRoute';
 import PrivateRoute from './components/PrivateRoute';
+
 
 class App extends Component {
   render() {
@@ -33,6 +34,7 @@ class App extends Component {
           <PrivateRoute exact path="/ProblemsToSolve" component={ProblemsToSolve} />
           <PrivateRoute exact path="/ProblemsToSolve/details/:id" component={ProblemToSolveDetails} />
           <PrivateRoute exact path="/AskProblem" component={AskProblem} />
+          <PrivateRoute exact path="/UserProfile" component={UserProfile} />
 
         </Switch>
       </div>
