@@ -13,9 +13,7 @@ class Problem {
     return this.problem
       .post('problems', { category, text : description,pic, authorID  })
       .then(({ data }) => data)
-      
- 
-        
+           
   }
 
 

@@ -42,7 +42,7 @@ class AnswerDetails extends Component {
         const { id, AnsId } = this.props.match.params;
         const { user } = this.state;
 
-        console.log('params', this.props.match.params)
+        // console.log('params', this.props.match.params)
 
         return (
             <div>

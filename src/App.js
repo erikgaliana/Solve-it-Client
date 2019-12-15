@@ -10,6 +10,7 @@ import MyProblems from './pages/MyProblems';
 import MyProblemDetails from './pages/MyProblemDetails';
 import AnswerDetails from './pages/AnswerDetails';
 import ProblemsToSolve from './pages/ProblemsToSolve';
+import ProblemToSolveDetails from './pages/ProblemToSolveDetails';
 import AskProblem from './pages/AskProblem';
 
 
@@ -30,6 +31,7 @@ class App extends Component {
           <PrivateRoute exact path="/MyProblems/details/:id" component={MyProblemDetails} />
           <PrivateRoute exact path="/MyProblems/details/:id/AnswerDetails/:AnsId" component={AnswerDetails} />
           <PrivateRoute exact path="/ProblemsToSolve" component={ProblemsToSolve} />
+          <PrivateRoute exact path="/ProblemsToSolve/details/:id" component={ProblemToSolveDetails} />
           <PrivateRoute exact path="/AskProblem" component={AskProblem} />
 
         </Switch>

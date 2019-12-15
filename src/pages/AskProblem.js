@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import { withAuth } from '../lib/AuthProvider';
 import userService from '../lib/user-service';
 import problemService from '../lib/problem-service';
@@ -31,13 +31,13 @@ class AddProblem extends Component {
         event.preventDefault();
         const { category ,description , pic} = this.state;
         const { user } = this.state;
-        console.log(user);
+        // console.log(user);
         
         
-        console.log("category",  category);
-        console.log("description", description);
-        console.log("pic :", pic);
-        console.log("user id ", user._id);
+        // console.log("category",  category);
+        // console.log("description", description);
+        // console.log("pic :", pic);
+        // console.log("user id ", user._id);
         
         problemService.askproblem(category,description,pic, user._id )
         .then( () => {
@@ -74,7 +74,7 @@ class AddProblem extends Component {
             <form onSubmit={this.handleFormSubmit}>
           
             <label>Category:</label>
-            <select name="category" value={this.state.category} onChange={ (e) => this.handleChange(e) } >
+            <select name="category" value={this.state.category} onChange={this.handleChange } >
                 <option value="dogs">Dogs</option>
                 <option value="cats">Cats</option>
                 <option value="parrots">Parrots</option>
@@ -90,8 +90,9 @@ class AddProblem extends Component {
           <label>Description:</label>
           <textarea name="description" 
             value={this.state.description} 
-            onChange={ (e) => this.handleChange(e) } />
-          
+            // onChange={ (e) => this.handleChange(e) } />
+           onChange={this.handleChange } />
+
           <input type="submit" value="Submit" />
         </form>
                 

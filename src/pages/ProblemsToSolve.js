@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { withAuth } from '../lib/AuthProvider';
 import userService from '../lib/user-service';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 
@@ -25,8 +25,8 @@ class ProblemsToSolve extends Component {
 
     render() {
         const { user } = this.state;
-        console.log(user);
-        
+        // console.log(user);
+
         return (
             <div>
             <h2> problems to solve </h2>
@@ -37,12 +37,12 @@ class ProblemsToSolve extends Component {
                                 
                                 <div className='problem' key={oneproblem._id} >
 
-                                {/* <Link to={`/MyProblems/details/${oneproblem._id}`}> */}
+                                <Link to={`/ProblemsToSolve/details/${oneproblem._id}`} className="text-link">
                                 <p>Problem : {oneproblem.text}</p>
                                 <p>Pic : {oneproblem.pic}</p>
                                 <p>author : {oneproblem.author.username}</p>
                                 
-                                {/* </Link> */}
+                                </Link>
                                 </div>
                             )
                     })

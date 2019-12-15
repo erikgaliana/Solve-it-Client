@@ -25,7 +25,7 @@ class MyProblems extends Component {
     
     render() {
         const { user } = this.state;
-        console.log(user);
+        // console.log(user);
         
         return (
             <div>
