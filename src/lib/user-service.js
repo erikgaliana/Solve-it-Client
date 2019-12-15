@@ -21,13 +21,7 @@ class User {
   }
 }
 
-// examplesService.getAll()
-//   .then( (response) => response.data )
-//   .catch( (err) => console.log(err));
 
-// examplesService.getOneById( idString )
-//   .then( ( { data } ) => data)
-//   .catch( (err) => console.log(err));
 
 const userService = new User();
 

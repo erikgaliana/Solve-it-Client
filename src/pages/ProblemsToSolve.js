@@ -25,7 +25,8 @@ class ProblemsToSolve extends Component {
 
     render() {
         const { user } = this.state;
-
+        console.log(user);
+        
         return (
             <div>
             <h2> problems to solve </h2>

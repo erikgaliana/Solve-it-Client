@@ -18,9 +18,14 @@ class Navbar extends Component {
               {' '}
               <button>My Problems</button>{' '}
             </Link>
+            <Link to="/AskProblem">
+              {' '}
+              <button>Ask a problem</button>{' '}
+            </Link>
+            
             <Link to="/ProblemsToSolve">
               {' '}
-              <button>Problems to solve</button>{' '}
+              <button>Problems to Solve</button>{' '}
             </Link>
             </div>
 
