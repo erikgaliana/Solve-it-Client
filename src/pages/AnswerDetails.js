@@ -20,17 +20,18 @@ class AnswerDetails extends Component {
 
     state = {
         user:{},
+        updated:false
         
     }
 
     updateUser=(e)=>{
-        e.preventDefault();
+        // e.preventDefault();
         const { user } = this.state;
         const { id,AnsId} = this.props.match.params;
-        console.log("inside upsating");
-        console.log("user id",user._id);
-        console.log("problem id", id);
-        console.log("answerId", AnsId);
+        // console.log("inside upsating");
+        // console.log("user id",user._id);
+        // console.log("problem id", id);
+        // console.log("answerId", AnsId);
         const answerauthorId = getAnswer(id,user,AnsId).author._id;
         // console.log(answer);
         // console.log("answerauthor",getAnswer(id,user,AnsId).author._id);
@@ -38,17 +39,27 @@ class AnswerDetails extends Component {
 
         // problemService.updateproblem(id,solution, answerauthorId)
         
-        problemService.updateproblem(id,AnsId, answerauthorId)
+        const firstPromise = problemService.updateproblem(id,AnsId, answerauthorId)
             .then(() => { console.log("problem updated")})
             .catch( (err) => console.log(err) )
 
 
-        userService.updateUser(id,user._id) 
+        const secondPromise = userService.updateUser(id,user._id) 
         .then( () => {
                 console.log("user updateded");
             
             })
             .catch( (err) => console.log(err) )
+
+        Promise.all([firstPromise, secondPromise])
+        .then( () => {
+            console.log("user and problem updated");
+            // window.redirect("http://localhost:3000/UserProfile");
+            this.setState({ updated : true});
+            console.log(this.state.updated);
+            
+        })
+        .catch( (err) => console.log(err));
 
 
     }
@@ -106,7 +117,8 @@ class AnswerDetails extends Component {
                     <div>
                     {/* <Link to={`/UserProfile`}> */}
                          {' '}
-                        <button onClick={this.updateUser}>Add to Problems Solved</button>{' '}
+                        <button onClick={this.updateUser}>Add to Problems Solved</button>
+                        {' '}
                      {/* </Link> */}
                     </div>
                     <div>
@@ -115,6 +127,16 @@ class AnswerDetails extends Component {
                         <button>Discard</button>{' '}
                      </Link>
                     </div>
+                    
+                        { this.state.updated ?
+                        <h5>User Updated</h5>
+                        : null  }
+                   
+
+
+                
+
+
 
             </div>
         )

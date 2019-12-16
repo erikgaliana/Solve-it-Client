@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { withAuth } from '../lib/AuthProvider';
+import cloudinaryService from '../lib/cloudinaryService';
 
 class Signup extends Component {
   state = { 
@@ -9,11 +10,13 @@ class Signup extends Component {
     mail :'',
     picture:'',
     points :20,
-    expert :'dogs'};
+    expert :'dogs',
+    imageReady:false
+  };
 
   handleFormSubmit = event => {
     event.preventDefault();
-   
+    console.log("before senddin'",this.state);
     //  console.log('Signup -> form submit', { username, password });
     this.props.signup(this.state); // props.signup is Provided by withAuth() and Context API
   };
@@ -23,12 +26,28 @@ class Signup extends Component {
     this.setState({ [name]: value });
   };
 
+
+
+handlePhotoChange = event => {
+    console.log(event.target.files[0]);
+    const file = event.target.files[0];
+    const imageFile = new FormData();
+    imageFile.append("photo", file);
+    cloudinaryService.imageUpload(imageFile)
+      .then(imageUrl => {
+        console.log("da image ",imageUrl);
+        this.setState({ picture: imageUrl, imageReady: true });
+        console.log("da picture in da state",this.state.picture);
+       });
+    
+  };
+
   render() {
     const { username, password,mail,expert} = this.state;
     return (
       <div>
         <h1>Sign Up</h1>
-        <form onSubmit={this.handleFormSubmit}>
+        <form onSubmit={this.handleFormSubmit} encType="multipart/form-data">
           <label>Username:</label>
           <input
             type="text"
@@ -62,7 +81,13 @@ class Signup extends Component {
                 <option value="parrots">Parrots</option>
              </select>
 
-          <input type="submit" value="Signup" />
+             <input
+            type="file"
+            name="photo"
+            onChange={event => this.handlePhotoChange(event)}
+          />
+
+          <button type="submit"  disabled={!this.state.imageReady}>Submit</button>
         </form>
 
         <p>Already have account?</p>
