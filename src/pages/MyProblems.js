@@ -31,6 +31,7 @@ class MyProblems extends Component {
             <div>
                 <h1>Welcome to solve it</h1>
                 <h2> your posted problems</h2>
+                
                 {
                     user.myproblems ?
                     user.myproblems.map((oneproblem)=> {

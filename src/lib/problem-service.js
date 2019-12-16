@@ -16,7 +16,16 @@ class Problem {
            
   }
 
+  // updateproblem(solution, answerauthorId){
+  //   return this.problem
+    
+  //   .put((`problems/update/${id}`), { solution, answerauthorId})
+  //   .then(({ data }) => data)
+         
+  //     }
 
+
+ // }
   
 
 }

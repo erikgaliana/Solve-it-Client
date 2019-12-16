@@ -22,7 +22,23 @@ class AnswerDetails extends Component {
         
     }
 
-    
+    updateUser=(e)=>{
+        e.preventDefault();
+        const { user } = this.state;
+        const { id } = this.props.match.params;
+        console.log("inside upsating");
+        console.log("user id",user._id);
+        console.log("problem id", id);
+       
+        userService.updateUser(id,user._id) 
+        .then( () => {
+                console.log("user updatged");
+            
+            })
+            .catch( (err) => console.log(err) )
+
+
+    }
 
     componentDidMount (){
         
@@ -75,10 +91,10 @@ class AnswerDetails extends Component {
                     </p>
                     </div>
                     <div>
-                    <Link to={`/UserProfile`}>
+                    {/* <Link to={`/UserProfile`}> */}
                          {' '}
-                        <button>Add to Problems Solved</button>{' '}
-                     </Link>
+                        <button onClick={this.updateUser}>Add to Problems Solved</button>{' '}
+                     {/* </Link> */}
                     </div>
                     <div>
                     <Link to={`/MyProblems/details/${id}`}>

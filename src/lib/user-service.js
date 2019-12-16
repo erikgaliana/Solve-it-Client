@@ -19,6 +19,18 @@ class User {
               .get(`/${id}`)
               .then(({ data }) => data);
   }
+
+
+
+  updateUser(id,userId ) {
+    
+    return this.user
+      .put((`/${id}`), { userId  })
+      .then(({ data }) => data)
+           
+  }
+
+
 }
 
 
