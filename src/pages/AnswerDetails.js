@@ -26,20 +26,26 @@ class AnswerDetails extends Component {
     updateUser=(e)=>{
         e.preventDefault();
         const { user } = this.state;
-        const { id } = this.props.match.params;
+        const { id,AnsId} = this.props.match.params;
         console.log("inside upsating");
         console.log("user id",user._id);
         console.log("problem id", id);
+        console.log("answerId", AnsId);
+        const answerauthorId = getAnswer(id,user,AnsId).author._id;
+        // console.log(answer);
+        // console.log("answerauthor",getAnswer(id,user,AnsId).author._id);
+           
 
-        
         // problemService.updateproblem(id,solution, answerauthorId)
-        //     .then(() => { console.log("problem updated")})
-        //     .catch( (err) => console.log(err) )
+        
+        problemService.updateproblem(id,AnsId, answerauthorId)
+            .then(() => { console.log("problem updated")})
+            .catch( (err) => console.log(err) )
 
 
         userService.updateUser(id,user._id) 
         .then( () => {
-                console.log("user updatged");
+                console.log("user updateded");
             
             })
             .catch( (err) => console.log(err) )
@@ -82,14 +88,14 @@ class AnswerDetails extends Component {
                 <hr></hr>
                 <h3> Answer Details</h3>
                     <div className='answer' >
-                    <p>Answer details :{
+                    <p>Answer details : {
                     user.myproblems ?
                     getAnswer(id,user,AnsId).text
                     :
                     <p>loading</p>
                     }
                     </p>
-                    <p> Picture :{
+                    <p> Picture : {
                     user.myproblems ?
                     getAnswer(id,user,AnsId).pic
                     :

@@ -43,9 +43,9 @@ class UserProfile extends Component {
                     <div className='Userprofile' >
                             <h2>User's profile</h2>
                         <p>Name : {user.username}</p>
-                        <p>Picture{user.pictureUrl}</p>
-                        <p>Expert on :{user.expert}</p>
-                        <p>Points :{user.points}</p>
+                        <p>Picture : {user.pictureUrl}</p>
+                        <p>Expert on : {user.expert}</p>
+                        <p>Points : {user.points}</p>
 
                     </div>
 

@@ -9,9 +9,10 @@ class Auth {
   }
 
   signup(user) {
-    const { username, password } = user;
+     const { username, password,mail,picture,expert, points} = user;
+  
     return this.auth
-      .post('/auth/signup', { username, password })
+      .post('/auth/signup', { username, password,mail,picture,expert,points })
       .then(({ data }) => data);
   }
 

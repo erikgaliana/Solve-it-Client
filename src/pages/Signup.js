@@ -3,13 +3,19 @@ import { Link } from 'react-router-dom';
 import { withAuth } from '../lib/AuthProvider';
 
 class Signup extends Component {
-  state = { username: '', password: '' };
+  state = { 
+    username: '',
+    password: '',
+    mail :'',
+    picture:'',
+    points :20,
+    expert :'dogs'};
 
   handleFormSubmit = event => {
     event.preventDefault();
-    const { username, password } = this.state;
+   
     //  console.log('Signup -> form submit', { username, password });
-    this.props.signup({ username, password }); // props.signup is Provided by withAuth() and Context API
+    this.props.signup(this.state); // props.signup is Provided by withAuth() and Context API
   };
 
   handleChange = event => {
@@ -18,7 +24,7 @@ class Signup extends Component {
   };
 
   render() {
-    const { username, password } = this.state;
+    const { username, password,mail,expert} = this.state;
     return (
       <div>
         <h1>Sign Up</h1>
@@ -38,6 +44,23 @@ class Signup extends Component {
             value={password}
             onChange={this.handleChange}
           />
+       
+          <label>Mail:</label>
+          <input
+            type="mail"
+            name="mail"
+            placeholder="usermail@example.com"
+            value={mail}
+            onChange={this.handleChange}
+          />
+
+
+          <label>Expert at :</label>
+            <select name="expert" value={expert} onChange={this.handleChange } >
+                <option value="dogs">Dogs</option>
+                <option value="cats">Cats</option>
+                <option value="parrots">Parrots</option>
+             </select>
 
           <input type="submit" value="Signup" />
         </form>
