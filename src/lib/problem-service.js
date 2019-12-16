@@ -3,7 +3,7 @@ import axios from 'axios';
 class Problem {
   constructor() {
     this.problem = axios.create({
-      baseURL: 'http://localhost:5000/',
+      baseURL: process.env.REACT_APP_API_URL+"/",
       withCredentials: true,
     });
   }
@@ -16,20 +16,16 @@ class Problem {
            
   }
 
-  // updateproblem(solution, answerauthorId){
-  //   return this.problem
+  updateproblem(id,solution, answerauthorId){
     
-  //   .put((`problems/update/${id}`), { solution, answerauthorId})
-  //   .then(({ data }) => data)
+    return this.problem
+    .put((`problems/update/${id}`), { solution, answerauthorId})
+    .then(({ data }) => data)
          
-  //     }
+      }
 
 
- // }
-  
-
-}
-
+  }
 
 
 const problemService = new Problem();

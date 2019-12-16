@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { withAuth } from '../lib/AuthProvider';
 import userService from '../lib/user-service';
+import problemService from '../lib/problem-service';
 import { Link } from 'react-router-dom';
 
 function getProblem(id,user) {
@@ -29,7 +30,13 @@ class AnswerDetails extends Component {
         console.log("inside upsating");
         console.log("user id",user._id);
         console.log("problem id", id);
-       
+
+        
+        // problemService.updateproblem(id,solution, answerauthorId)
+        //     .then(() => { console.log("problem updated")})
+        //     .catch( (err) => console.log(err) )
+
+
         userService.updateUser(id,user._id) 
         .then( () => {
                 console.log("user updatged");

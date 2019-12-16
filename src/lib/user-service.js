@@ -3,7 +3,7 @@ import axios from 'axios';
 class User {
   constructor() {
     this.user = axios.create({
-      baseURL: 'http://localhost:5000/users',
+      baseURL: process.env.REACT_APP_API_URL+"/",
       withCredentials: true,
     });
   }
@@ -16,7 +16,7 @@ class User {
 
   getOneById(id) {
     return this.user
-              .get(`/${id}`)
+              .get(`users/${id}`)
               .then(({ data }) => data);
   }
 
@@ -25,7 +25,7 @@ class User {
   updateUser(id,userId ) {
     
     return this.user
-      .put((`/${id}`), { userId  })
+      .put((`users/${id}`), { userId  })
       .then(({ data }) => data)
            
   }
