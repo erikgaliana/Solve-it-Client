@@ -83,7 +83,7 @@ class ProblemToSolveDetails extends Component {
 
     render() {
 
-        const { id } = this.props.match.params;
+        // const { id } = this.props.match.params;
         const { user } = this.state;
         const { problem } = this.state;
 

@@ -83,7 +83,7 @@ class AnswerDetails extends Component {
 
     render() {
 
-        const { id, AnsId } = this.props.match.params;
+        const { id } = this.props.match.params;
         const { user } = this.state;
         const { myproblem} = this.state;
         const { answer } = this.state;

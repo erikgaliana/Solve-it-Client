@@ -47,6 +47,11 @@ class UserProfile extends Component {
                         
                         <p>Expert on : {user.expert}</p>
                         <p>Points : {user.points}</p>
+                        <Link to={`/EditUserProfile`}>
+                     
+                         <button>Edit User Profile</button>
+                        
+                         </Link>
 
                     </div>
 
@@ -61,9 +66,11 @@ class UserProfile extends Component {
                                 {/* <Link to={`/MyProblems/details/${oneproblem._id}`} className="text-link"> */}
                                 
                                 <p>Problem :{oneproblem.text}</p>
+                                <img src={oneproblem.pic} alt=""></img>
                                 <p>Category : {oneproblem.category}</p>
                                 <hr></hr>
                                 <p>Solution : {oneproblem.solution[0].text}</p>
+                                <img src={oneproblem.solution[0].pic} alt=""></img>
                                 <p>Solution author: {oneproblem.solution[0].author.username}</p>
                                 {/* </Link> */}
                                 </div>

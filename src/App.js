@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch } from 'react-router-dom';
 import "./App.css";
 
 import Signup from './pages/Signup';
@@ -13,6 +13,7 @@ import ProblemsToSolve from './pages/ProblemsToSolve';
 import ProblemToSolveDetails from './pages/ProblemToSolveDetails';
 import AskProblem from './pages/AskProblem';
 import UserProfile from './pages/UserProfile';
+import EditUserProfile from './pages/EditUserProfile'
 
 import AnonRoute from './components/AnonRoute';
 import PrivateRoute from './components/PrivateRoute';
@@ -35,6 +36,7 @@ class App extends Component {
           <PrivateRoute exact path="/ProblemsToSolve/details/:id" component={ProblemToSolveDetails} />
           <PrivateRoute exact path="/AskProblem" component={AskProblem} />
           <PrivateRoute exact path="/UserProfile" component={UserProfile} />
+          <PrivateRoute exact path="/EditUserProfile" component={EditUserProfile} />
 
         </Switch>
       </div>
