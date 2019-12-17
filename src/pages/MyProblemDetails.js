@@ -14,19 +14,19 @@ function getProblem(id,user) {
 class MyProblemDetails extends Component {
     state = {
         user:{},
-        
+        myproblem:{},
     }
 
     
 
     componentDidMount (){
-        
-        
+        const { id } = this.props.match.params;
         const userId  = this.props.user._id;
         
         userService.getOneById(userId)
          .then ((oneUser)=>{
             this.setState({user : oneUser});
+            this.setState({ myproblem : getProblem(id,oneUser)});
             })
          .catch ((err) => console.log(err));
     }
@@ -35,7 +35,7 @@ class MyProblemDetails extends Component {
 
         const { id } = this.props.match.params;
         const { user } = this.state;
-
+        const { myproblem } = this.state;
         
         
         // console.log( "problem id", id);
@@ -50,16 +50,23 @@ class MyProblemDetails extends Component {
                 <h2>My problem asked is :</h2>
                 
                 <h3>
-                    {
+                    {/* {
                     user.myproblems ?
                     getProblem(id,user).text
                     
                     :
                     <p>loading</p>
+                    } */}
+
+                    {
+                    user.myproblems ?
+                    myproblem.text
+                    :
+                    <p>loading</p>
                     }
                     </h3>
 
-                    {/* <img src={getProblem(id,user).pic} alt=""></img> */}
+                    <img src={myproblem.pic} alt=""></img>
                         
                     <hr></hr>
                     <h3>Answers proposed</h3>
@@ -73,6 +80,7 @@ class MyProblemDetails extends Component {
 
                                 <Link to={`/MyProblems/details/${id}/AnswerDetails/${oneanswer._id}`} className="text-link">
                                 <p>Answer : {oneanswer.text}</p>
+                                <p> Answer picture :<br></br> <img src={oneanswer.pic} alt=""></img></p>
                                
                                  </Link> 
                                 </div>

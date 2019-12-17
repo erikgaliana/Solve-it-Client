@@ -99,7 +99,7 @@ class ProblemToSolveDetails extends Component {
                  <img src={problem.pic} alt=""></img>
 
                 
-                 <img src={this.state.pic} alt=""></img>
+                 
                  <br></br>
 
                     <h5>propose solution :</h5>
