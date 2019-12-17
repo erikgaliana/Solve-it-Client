@@ -17,9 +17,9 @@ class ProblemToSolveDetails extends Component {
 
     state = {
         user:{},
-        decription:"",
+        description:"",
         problem:{},
-        imageReady: false,
+        imageReady: true,
         updated : false
         
     }
@@ -66,6 +66,7 @@ class ProblemToSolveDetails extends Component {
 
 
       handlePhotoChange = event => {
+        this.setState({ imageReady: false });
         console.log(event.target.files[0]);
         const file = event.target.files[0];
         const imageFile = new FormData();
