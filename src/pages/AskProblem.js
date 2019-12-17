@@ -4,6 +4,7 @@ import { withAuth } from '../lib/AuthProvider';
 import userService from '../lib/user-service';
 import problemService from '../lib/problem-service';
 import cloudinaryService from '../lib/cloudinaryService';
+import { Link } from 'react-router-dom';
 
 
 
@@ -15,7 +16,8 @@ class AddProblem extends Component {
         description: "",
         category: "dogs",
         pic : "noimage.jpg",
-        imageReady: false 
+        imageReady: true ,
+        updated : false
 
     }
 
@@ -38,6 +40,7 @@ class AddProblem extends Component {
         .then( () => {
             
             this.setState({ description: "", category: "dogs", pic : "noimage.jpg"});
+            this.setState({ updated : true});
             })
             .catch( (err) => console.log(err) )
 
@@ -50,6 +53,7 @@ class AddProblem extends Component {
       }
 
       handlePhotoChange = event => {
+        this.setState({ imageReady: false });
         console.log(event.target.files[0]);
         const file = event.target.files[0];
         const imageFile = new FormData();
@@ -69,10 +73,14 @@ class AddProblem extends Component {
         
 
         return (
+
+
             <div>
 
             <h1>Add a problem you would like to be solved</h1>
 
+            { !this.state.updated ?
+                    (
             <form onSubmit={this.handleFormSubmit}>
           
             <label>Category:</label>
@@ -98,8 +106,18 @@ class AddProblem extends Component {
 
           <button type="submit"  disabled={!this.state.imageReady}>Submit</button>
         </form>
+        )
+          :  
+               ( <div>
+                  <h4>Question Sent</h4>
+                  <Link to={`/MyProblems`}>
+                     
+                  <button>go to profile</button>
+                        
+                  </Link></div>)
+          } 
                 
-            </div>
+          </div>
         )
     }
 }

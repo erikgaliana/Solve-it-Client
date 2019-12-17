@@ -3,6 +3,7 @@ import { withAuth } from '../lib/AuthProvider';
 import userService from '../lib/user-service';
 import answerService from '../lib/answer-service';
 import cloudinaryService from '../lib/cloudinaryService';
+import { Link } from 'react-router-dom';
 
 
 function getProblem(id,user) {
@@ -18,7 +19,8 @@ class ProblemToSolveDetails extends Component {
         user:{},
         decription:"",
         problem:{},
-        imageReady: false
+        imageReady: false,
+        updated : false
         
     }
 
@@ -49,6 +51,7 @@ class ProblemToSolveDetails extends Component {
         .then( () => {
             
             this.setState({ description: "", pic : "noimage.jpg"});
+            this.setState({ updated : true});
             })
             .catch( (err) => console.log(err) )
 
@@ -103,23 +106,33 @@ class ProblemToSolveDetails extends Component {
                  <br></br>
 
                     <h5>propose solution :</h5>
-                 <form onSubmit={this.handleformsubmit}>
+                    { !this.state.updated ?
+                    (
+                        <form onSubmit={this.handleformsubmit}>
 
-                    <label>Aneswer text :</label>
-                        <textarea name="description" 
-                        value={this.state.description} 
-                        onChange={this.handleChange}/>
+                         <label>Aneswer text :</label>
+                            <textarea name="description" 
+                            value={this.state.description} 
+                            onChange={this.handleChange}/>
 
-                    <input
+                        <input
                             type="file"
                             name="photo"
                             onChange={event => this.handlePhotoChange(event)}
-          />
+                        />
 
-                    <button type="submit"  disabled={!this.state.imageReady}>Submit</button>
+                        <button type="submit"  disabled={!this.state.imageReady}>Submit</button>
                     {/* <input type="submit" value="Submit" /> */}
 
-                     </form>
+                     </form>)
+                    :  
+                     ( <h4>Answer Sent</h4> ,
+                         <Link to={`/MyProblems`}>
+                     
+                            <button>go to my problems</button>
+                        
+                        </Link>)
+                    } 
                     
             </div>
         )

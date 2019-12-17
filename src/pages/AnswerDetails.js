@@ -105,6 +105,8 @@ class AnswerDetails extends Component {
                 <img src={myproblem.pic} alt=""></img>
                 <hr></hr>
                 <h3> Answer Details</h3>
+                      { !this.state.updated ?
+                    (
                     <div className='answer' >
                     <p>Answer details : {
                     user.myproblems ?
@@ -120,20 +122,29 @@ class AnswerDetails extends Component {
                     <p>loading</p>
                     }
                     </p>
-                    </div>
-                    <div>
+                    </div>)
+                        :  null }
+
+
+                    { !this.state.updated ?
+                    (<div>
                     {/* <Link to={`/UserProfile`}> */}
                          {' '}
                         <button onClick={this.updateUser}>Add to Problems Solved</button>
                         {' '}
                      {/* </Link> */}
-                    </div>
+                    </div>)
+                        :  null }
+                       
+                        { !this.state.updated ?
+                    (   
                     <div>
                     <Link to={`/MyProblems/details/${id}`}>
                          {' '}
                         <button>Discard</button>{' '}
                      </Link>
-                    </div>
+                    </div>)
+                        :  null }
                     
                         { this.state.updated ?
                        ( <h5>User Updated</h5>,

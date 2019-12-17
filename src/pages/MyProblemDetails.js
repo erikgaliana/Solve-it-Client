@@ -81,7 +81,7 @@ class MyProblemDetails extends Component {
                                 <Link to={`/MyProblems/details/${id}/AnswerDetails/${oneanswer._id}`} className="text-link">
                                 <p>Answer : {oneanswer.text}</p>
                                 <p> Answer picture :<br></br> <img src={oneanswer.pic} alt=""></img></p>
-                               
+                                <p> Answer author : {oneanswer.author.username} </p>
                                  </Link> 
                                 </div>
                             )
