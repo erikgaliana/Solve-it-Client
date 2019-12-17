@@ -41,9 +41,10 @@ class UserProfile extends Component {
         return (
             <div>
                     <div className='Userprofile' >
+                        <img src={user.pictureUrl} alt="userimg" ></img>
                             <h2>User's profile</h2>
                         <p>Name : {user.username}</p>
-                        <p>Picture : {user.pictureUrl}</p>
+                        
                         <p>Expert on : {user.expert}</p>
                         <p>Points : {user.points}</p>
 

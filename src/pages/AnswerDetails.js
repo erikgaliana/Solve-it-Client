@@ -53,10 +53,10 @@ class AnswerDetails extends Component {
 
         Promise.all([firstPromise, secondPromise])
         .then( () => {
-            console.log("user and problem updated");
+            // console.log("user and problem updated");
             // window.redirect("http://localhost:3000/UserProfile");
             this.setState({ updated : true});
-            console.log(this.state.updated);
+            // console.log(this.state.updated);
             
         })
         .catch( (err) => console.log(err));

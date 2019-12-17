@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { withAuth } from '../lib/AuthProvider';
 import userService from '../lib/user-service';
 import problemService from '../lib/problem-service';
+import cloudinaryService from '../lib/cloudinaryService';
 
 
 
@@ -18,7 +19,6 @@ class AddProblem extends Component {
 
     componentDidMount (){
         
-        
         const id  = this.props.user._id;
         userService.getOneById(id)
         .then ((oneUser)=>{
@@ -31,13 +31,6 @@ class AddProblem extends Component {
         event.preventDefault();
         const { category ,description , pic} = this.state;
         const { user } = this.state;
-        // console.log(user);
-        
-        
-        // console.log("category",  category);
-        // console.log("description", description);
-        // console.log("pic :", pic);
-        // console.log("user id ", user._id);
         
         problemService.askproblem(category,description,pic, user._id )
         .then( () => {
@@ -46,12 +39,6 @@ class AddProblem extends Component {
             })
             .catch( (err) => console.log(err) )
 
-        //  axios.post("http://localhost:5000/problems", { category, text : description,pic, authorID  : user._id })
-        //     .then( () => {
-            
-        //     this.setState({ description: "", category: "dogs", pic : "noimage.jpg"});
-        //     })
-        //     .catch( (err) => console.log(err) )
       }
     
     
@@ -60,6 +47,19 @@ class AddProblem extends Component {
         this.setState( {[name]: value} );
       }
 
+      handlePhotoChange = event => {
+        console.log(event.target.files[0]);
+        const file = event.target.files[0];
+        const imageFile = new FormData();
+        imageFile.append("photo", file);
+        cloudinaryService.imageUpload(imageFile)
+          .then(imageUrl => {
+            console.log("da image ",imageUrl);
+            this.setState({ pic: imageUrl, imageReady: true });
+            console.log("da picture in da state",this.state.pic);
+           });
+        
+      };
 
       
 
@@ -81,11 +81,6 @@ class AddProblem extends Component {
                 
              </select>
 
-            {/* <label>Title:</label>
-          <input type="text" 
-            name="title" 
-            value={this.state.title} 
-            onChange={ (e) => this.handleChange(e) }/> */}
           
           <label>Description:</label>
           <textarea name="description" 
@@ -93,7 +88,13 @@ class AddProblem extends Component {
             // onChange={ (e) => this.handleChange(e) } />
            onChange={this.handleChange } />
 
-          <input type="submit" value="Submit" />
+          <input
+            type="file"
+            name="photo"
+            onChange={event => this.handlePhotoChange(event)}
+          />
+
+          <button type="submit"  disabled={!this.state.imageReady}>Submit</button>
         </form>
                 
             </div>

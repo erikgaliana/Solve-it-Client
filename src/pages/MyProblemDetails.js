@@ -36,6 +36,8 @@ class MyProblemDetails extends Component {
         const { id } = this.props.match.params;
         const { user } = this.state;
 
+        
+        
         // console.log( "problem id", id);
         // console.log( "user", user);
         
@@ -51,10 +53,14 @@ class MyProblemDetails extends Component {
                     {
                     user.myproblems ?
                     getProblem(id,user).text
+                    
                     :
                     <p>loading</p>
                     }
                     </h3>
+
+                    {/* <img src={getProblem(id,user).pic} alt=""></img> */}
+                        
                     <hr></hr>
                     <h3>Answers proposed</h3>
                     {

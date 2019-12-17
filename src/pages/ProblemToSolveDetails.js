@@ -6,7 +6,8 @@ import answerService from '../lib/answer-service';
 
 function getProblem(id,user) {
     const result= user.problemstosolve.find(element => element._id=== id);
-   
+    
+    // this.setState({pic : result.pic});
     return result;
    }
 
@@ -15,20 +16,21 @@ class ProblemToSolveDetails extends Component {
     state = {
         user:{},
         decription:"",
-        pic:"noimage.jpg"
+        problem:{}
         
     }
 
     
 
     componentDidMount (){
-        
+        const { id } = this.props.match.params;
         
         const userId  = this.props.user._id;
         
         userService.getOneById(userId)
          .then ((oneUser)=>{
             this.setState({user : oneUser});
+            this.setState({ problem : getProblem(id,oneUser)});
             })
          .catch ((err) => console.log(err));
     }
@@ -61,19 +63,25 @@ class ProblemToSolveDetails extends Component {
 
         const { id } = this.props.match.params;
         const { user } = this.state;
+        const { problem } = this.state;
 
+        console.log("problem object", problem)
 
         return (
             <div>
                 <h1> inside problem to solve details</h1>
                 <h4>
-                {
+                    {
                     user.problemstosolve ?
-                    getProblem(id,user).text
+                    problem.text
                     :
                     <p>loading</p>
                     }
                  </h4>
+                 <img src={problem.pic} alt=""></img>
+
+                
+                 <img src={this.state.pic} alt=""></img>
                  <br></br>
 
                     <h5>propose solution :</h5>

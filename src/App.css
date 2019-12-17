@@ -61,6 +61,10 @@ body {
   
 }
 
+.problem img, .answer img{
+  width:100px;
+}
+
 .Userprofile {
   margin: 0 auto;
   margin-bottom: 10px;
@@ -72,6 +76,10 @@ body {
   text-decoration: inherit;
   
   font-family: helvetica;
+}
+
+.Userprofile img{
+  width:100px;
 }
 
 .text-link {
@@ -95,4 +103,8 @@ textarea {
   width: 250px;
   height: 75px;
   font-size: large;
+}
+
+img {
+  max-width: 250px;
 }

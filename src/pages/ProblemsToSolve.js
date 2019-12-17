@@ -39,7 +39,7 @@ class ProblemsToSolve extends Component {
 
                                 <Link to={`/ProblemsToSolve/details/${oneproblem._id}`} className="text-link">
                                 <p>Problem : {oneproblem.text}</p>
-                                <p>Pic : {oneproblem.pic}</p>
+                                <p>Problem image :<br></br> <img src={oneproblem.pic} alt=""></img></p>
                                 <p>author : {oneproblem.author.username}</p>
                                 
                                 </Link>
