@@ -15,6 +15,7 @@ class MyProblemDetails extends Component {
     state = {
         user:{},
         myproblem:{},
+        problemAnswersEmpty : false 
     }
 
     
@@ -22,11 +23,12 @@ class MyProblemDetails extends Component {
     componentDidMount (){
         const { id } = this.props.match.params;
         const userId  = this.props.user._id;
-        
+       
         userService.getOneById(userId)
          .then ((oneUser)=>{
             this.setState({user : oneUser});
             this.setState({ myproblem : getProblem(id,oneUser)});
+            if(this.state.myproblem.problemanswers.length===0){this.setState({ problemAnswersEmpty : true })}
             })
          .catch ((err) => console.log(err));
     }
@@ -36,7 +38,7 @@ class MyProblemDetails extends Component {
         const { id } = this.props.match.params;
         const { user } = this.state;
         const { myproblem } = this.state;
-        
+        console.log("is empty",this.state.problemAnswersEmpty);
         
         // console.log( "problem id", id);
         // console.log( "user", user);
@@ -64,13 +66,13 @@ class MyProblemDetails extends Component {
                     :
                     <p>loading</p>
                     }
-                    </h3>
+                </h3>
 
                     <img src={myproblem.pic} alt=""></img>
                         
                     <hr></hr>
                     <h3>Answers proposed</h3>
-                    {
+                 {
                        
                 user.myproblems ?
                 getProblem(id,user).problemanswers.reverse().map((oneanswer)=> {
@@ -91,6 +93,12 @@ class MyProblemDetails extends Component {
 
 
                 }
+                    {
+                     this.state.problemAnswersEmpty ?
+                     (<h2>No Answers recieved</h2>)
+                      : null }
+
+                
 
                 
 

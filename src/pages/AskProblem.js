@@ -75,7 +75,7 @@ class AddProblem extends Component {
         return (
 
 
-            <div>
+          <div>
 
             <h1>Add a problem you would like to be solved</h1>
 
@@ -92,27 +92,27 @@ class AddProblem extends Component {
              </select>
 
           
-          <label>Description:</label>
-          <textarea name="description" 
-            value={this.state.description} 
-            // onChange={ (e) => this.handleChange(e) } />
-           onChange={this.handleChange } />
+             <label>Description:</label>
+             <textarea name="description" 
+               value={this.state.description} 
+                // onChange={ (e) => this.handleChange(e) } />
+                onChange={this.handleChange } />
 
-          <input
-            type="file"
-            name="photo"
-            onChange={event => this.handlePhotoChange(event)}
-          />
+              <input
+                type="file"
+                name="photo"
+                onChange={event => this.handlePhotoChange(event)}
+              />
 
-          <button type="submit"  disabled={!this.state.imageReady}>Submit</button>
-        </form>
+              <button type="submit"  disabled={!this.state.imageReady}>Submit</button>
+            </form>
         )
           :  
                ( <div>
                   <h4>Question Sent</h4>
                   <Link to={`/MyProblems`}>
                      
-                  <button>go to profile</button>
+                  <button>Go to my problems asked</button>
                         
                   </Link></div>)
           } 
