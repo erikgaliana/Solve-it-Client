@@ -87,12 +87,15 @@ class ProblemToSolveDetails extends Component {
         const { user } = this.state;
         const { problem } = this.state;
 
-        console.log("problem object", problem)
+        // console.log("problem object", problem)
 
         return (
             <div>
-                <h1> inside problem to solve details</h1>
-                <h4>
+                <h1> Problem to solve details</h1>
+                <div className="problem">
+                
+                <h4> Problem asked : </h4>
+                    <h4>
                     {
                     user.problemstosolve ?
                     problem.text
@@ -103,15 +106,15 @@ class ProblemToSolveDetails extends Component {
                  <img src={problem.pic} alt=""></img>
 
                 
-                 
+                 </div>
                  <br></br>
 
-                    <h5>propose solution :</h5>
+                    <h3>propose solution :</h3>
                     { !this.state.updated ?
                     (
                         <form onSubmit={this.handleformsubmit}>
 
-                         <label>Aneswer text :</label>
+                         <label>Answer text :</label>
                             <textarea name="description" 
                             value={this.state.description} 
                             onChange={this.handleChange}/>

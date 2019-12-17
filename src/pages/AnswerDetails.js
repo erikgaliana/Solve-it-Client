@@ -88,6 +88,8 @@ class AnswerDetails extends Component {
         const { myproblem} = this.state;
         const { answer } = this.state;
 
+        console.log("user charged",this.state.updated)
+
         // console.log('params', this.props.match.params)
 
         return (
@@ -104,56 +106,47 @@ class AnswerDetails extends Component {
                 </h3>
                 <img src={myproblem.pic} alt=""></img>
                 <hr></hr>
-                <h3> Answer Details</h3>
-                      { !this.state.updated ?
-                    (
-                    <div className='answer' >
-                    <p>Answer details : {
-                    user.myproblems ?
-                    answer.text
-                    :
-                    <p>loading</p>
-                    }
-                    </p>
-                    <p> Picture : <br></br>{
-                    user.myproblems ?
-                    <img src={answer.pic} alt=""></img>
-                    :
-                    <p>loading</p>
-                    }
-                    </p>
-                    </div>)
-                        :  null }
+                
+                    { ((!this.state.updated)&&(user.myproblems)) ?
+
+                     (
+                        <h3> Answer Details</h3>,
+                    
+                    
+                         <div className='answer' >
+                         <p>Answer details : { answer.text } </p>
+                         {answer.pic ?
+                         (<p> Picture : </p>,<br></br>)
+                        : null }
+                         <img src={answer.pic} alt=""></img>
+                    
+                        </div>
+                     )
+                    :  null }
 
 
                     { !this.state.updated ?
-                    (<div>
-                    {/* <Link to={`/UserProfile`}> */}
-                         {' '}
-                        <button onClick={this.updateUser}>Add to Problems Solved</button>
-                        {' '}
-                     {/* </Link> */}
-                    </div>)
-                        :  null }
-                       
-                        { !this.state.updated ?
-                    (   
-                    <div>
-                    <Link to={`/MyProblems/details/${id}`}>
-                         {' '}
-                        <button>Discard</button>{' '}
-                     </Link>
-                    </div>)
-                        :  null }
+                    (
+                        <div>
                     
-                        { this.state.updated ?
-                       ( <h5>User Updated</h5>,
+                        <button onClick={this.updateUser}>Add to Problems Solved</button>
+                    
+                         <Link to={`/MyProblems/details/${id}`}>
+                          {' '}
+                         <button>Discard</button>
+                         
+                         {' '}
+                         </Link>
+                          </div>
+                    )
+                    : 
+                       (<div> <h5>Problem added to problems solved</h5>
                          <Link to={`/UserProfile`}>
                         
                         <button>go to profile</button>
                         
-                     </Link>)
-                        : null  }
+                     </Link></div>)}
+                        
                    
 
 
