@@ -14,7 +14,9 @@ class AddProblem extends Component {
         user:{},
         description: "",
         category: "dogs",
-        pic : "noimage.jpg"
+        pic : "noimage.jpg",
+        imageReady: false 
+
     }
 
     componentDidMount (){

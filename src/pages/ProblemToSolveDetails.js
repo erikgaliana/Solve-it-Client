@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { withAuth } from '../lib/AuthProvider';
 import userService from '../lib/user-service';
 import answerService from '../lib/answer-service';
+import cloudinaryService from '../lib/cloudinaryService';
 
 
 function getProblem(id,user) {
@@ -16,7 +17,8 @@ class ProblemToSolveDetails extends Component {
     state = {
         user:{},
         decription:"",
-        problem:{}
+        problem:{},
+        imageReady: false
         
     }
 
@@ -59,6 +61,22 @@ class ProblemToSolveDetails extends Component {
       }
 
 
+
+      handlePhotoChange = event => {
+        console.log(event.target.files[0]);
+        const file = event.target.files[0];
+        const imageFile = new FormData();
+        imageFile.append("photo", file);
+        cloudinaryService.imageUpload(imageFile)
+          .then(imageUrl => {
+            console.log("da image ",imageUrl);
+            this.setState({ pic: imageUrl, imageReady: true });
+            console.log("da picture in da state",this.state.pic);
+           });
+        
+      };
+
+
     render() {
 
         const { id } = this.props.match.params;
@@ -92,10 +110,14 @@ class ProblemToSolveDetails extends Component {
                         value={this.state.description} 
                         onChange={this.handleChange}/>
 
+                    <input
+                            type="file"
+                            name="photo"
+                            onChange={event => this.handlePhotoChange(event)}
+          />
 
-
-
-                    <input type="submit" value="Submit" />
+                    <button type="submit"  disabled={!this.state.imageReady}>Submit</button>
+                    {/* <input type="submit" value="Submit" /> */}
 
                      </form>
                     
