@@ -20,7 +20,9 @@ class AnswerDetails extends Component {
 
     state = {
         user:{},
-        updated:false
+        updated:false,
+        myproblem:{},
+        answer:{}
         
     }
 
@@ -36,13 +38,11 @@ class AnswerDetails extends Component {
         // console.log(answer);
         // console.log("answerauthor",getAnswer(id,user,AnsId).author._id);
            
-
         // problemService.updateproblem(id,solution, answerauthorId)
         
         const firstPromise = problemService.updateproblem(id,AnsId, answerauthorId)
             .then(() => { console.log("problem updated")})
             .catch( (err) => console.log(err) )
-
 
         const secondPromise = userService.updateUser(id,user._id) 
         .then( () => {
@@ -66,12 +66,16 @@ class AnswerDetails extends Component {
 
     componentDidMount (){
         
-        
         const userId  = this.props.user._id;
+        const { id, AnsId } = this.props.match.params;
+
         
         userService.getOneById(userId)
          .then ((oneUser)=>{
             this.setState({user : oneUser});
+            this.setState({ myproblem : getProblem(id,oneUser)});
+            this.setState({ answer : getAnswer(id,oneUser,AnsId)});
+
             })
          .catch ((err) => console.log(err));
     }
@@ -81,6 +85,8 @@ class AnswerDetails extends Component {
 
         const { id, AnsId } = this.props.match.params;
         const { user } = this.state;
+        const { myproblem} = this.state;
+        const { answer } = this.state;
 
         // console.log('params', this.props.match.params)
 
@@ -91,24 +97,25 @@ class AnswerDetails extends Component {
                 <h3> 
                     {
                     user.myproblems ?
-                    getProblem(id,user).text
+                    myproblem.text
                     :
                     <p>loading</p>
                     }
                 </h3>
+                <img src={myproblem.pic} alt=""></img>
                 <hr></hr>
                 <h3> Answer Details</h3>
                     <div className='answer' >
                     <p>Answer details : {
                     user.myproblems ?
-                    getAnswer(id,user,AnsId).text
+                    answer.text
                     :
                     <p>loading</p>
                     }
                     </p>
-                    <p> Picture : {
+                    <p> Picture : <br></br>{
                     user.myproblems ?
-                    getAnswer(id,user,AnsId).pic
+                    <img src={answer.pic} alt=""></img>
                     :
                     <p>loading</p>
                     }
@@ -129,7 +136,12 @@ class AnswerDetails extends Component {
                     </div>
                     
                         { this.state.updated ?
-                        <h5>User Updated</h5>
+                       ( <h5>User Updated</h5>,
+                         <Link to={`/UserProfile`}>
+                        
+                        <button>go to profile</button>
+                        
+                     </Link>)
                         : null  }
                    
 
