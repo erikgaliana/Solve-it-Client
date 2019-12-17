@@ -8,6 +8,7 @@ import { withAuth } from '../lib/AuthProvider';
 class MyProblems extends Component {
     state = {
         user:{},
+        problemsempty : false
         
     }
 
@@ -18,6 +19,7 @@ class MyProblems extends Component {
         userService.getOneById(id)
         .then ((oneUser)=>{
             this.setState({user : oneUser});
+            if (oneUser.myproblems.length===0){ this.setState({problemsempty : true });}
         })
         .catch ((err) => console.log(err));
     }
@@ -26,15 +28,16 @@ class MyProblems extends Component {
     render() {
         const { user } = this.state;
         // console.log(user);
-        
+        console.log(user.myproblems);
         return (
             <div>
                 <h1>Welcome to solve it</h1>
-                <h2> your posted problems</h2>
+                {/* <h2> your posted problems</h2> */}
                 
                 {
                     user.myproblems ?
-                    user.myproblems.map((oneproblem)=> {
+                    (<h2> your posted problems</h2>,
+                    user.myproblems.reverse().map((oneproblem)=> {
                             return (
                                 
                                 <div className='problem' key={oneproblem._id}>
@@ -47,11 +50,17 @@ class MyProblems extends Component {
                                 </Link>
                                 </div>
                             )
-                    })
-                    :
-                    <p>loading</p>
+                    }))
+                    :( <h4>loading</h4>)
+                    
                 }
 
+                { this.state.problemsempty ?
+                (<h2>No problems asked</h2>)
+                : null }
+
+
+               
             </div>
         )
     }

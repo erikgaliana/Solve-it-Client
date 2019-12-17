@@ -32,7 +32,7 @@ class ProblemsToSolve extends Component {
             <h1> Problems to solve </h1>
                 {
                     user.problemstosolve ?
-                    user.problemstosolve.map((oneproblem)=> {
+                    user.problemstosolve.reverse().map((oneproblem)=> {
                             return (
                                 
                                 <div className='problem' key={oneproblem._id} >

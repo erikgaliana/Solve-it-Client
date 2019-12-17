@@ -4,11 +4,11 @@ import userService from '../lib/user-service';
 import { Link } from 'react-router-dom';
 
 
-function getProblem(id,user) {
-    const result= user.mysolvedproblems.find(element => element._id=== id);
+// function getProblem(id,user) {
+//     const result= user.mysolvedproblems.find(element => element._id=== id);
    
-    return result;
-   }
+//     return result;
+//    }
 
 class UserProfile extends Component {
     state = {
@@ -53,7 +53,7 @@ class UserProfile extends Component {
                     <h3>My Problems Solved</h3>
                     {
                     user.mysolvedproblems ?
-                    user.mysolvedproblems.map((oneproblem)=> {
+                    user.mysolvedproblems.reverse().map((oneproblem)=> {
                             return (
                                 
                                 <div className='problem' key={oneproblem._id}>

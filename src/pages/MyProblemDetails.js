@@ -73,7 +73,7 @@ class MyProblemDetails extends Component {
                     {
                        
                 user.myproblems ?
-                getProblem(id,user).problemanswers.map((oneanswer)=> {
+                getProblem(id,user).problemanswers.reverse().map((oneanswer)=> {
                             return (
                                 
                                 <div className='answer' key={oneanswer._id}>
