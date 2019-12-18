@@ -46,7 +46,8 @@ class MyProblemDetails extends Component {
 
 
         return (
-            <div>
+            
+            <div className="Container">
 
              
                 <h2>My problem asked is :</h2>
@@ -104,6 +105,7 @@ class MyProblemDetails extends Component {
 
 
             </div>
+           
         )
     }
 }

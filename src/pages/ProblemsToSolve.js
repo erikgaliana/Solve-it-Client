@@ -28,7 +28,7 @@ class ProblemsToSolve extends Component {
         // console.log(user);
 
         return (
-            <div>
+            <div className="Container">
             <h1> Problems to solve </h1>
                 {
                     user.problemstosolve ?

@@ -90,7 +90,7 @@ class ProblemToSolveDetails extends Component {
         // console.log("problem object", problem)
 
         return (
-            <div>
+            <div className="Container">
                 <h1> Problem to solve details</h1>
                 <div className="problem">
                 

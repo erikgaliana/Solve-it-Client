@@ -6,6 +6,7 @@ import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Private from './pages/Private';
 import Navbar from './components/Navbar';
+import Topbar from './components/Topbar';
 import MyProblems from './pages/MyProblems';
 import MyProblemDetails from './pages/MyProblemDetails';
 import AnswerDetails from './pages/AnswerDetails';
@@ -23,6 +24,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <Topbar />
         <Navbar />
       
         <Switch>

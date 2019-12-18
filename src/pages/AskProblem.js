@@ -75,7 +75,7 @@ class AddProblem extends Component {
         return (
 
 
-          <div>
+          <div className="Container">
 
             <h1>Add a problem you would like to be solved</h1>
 

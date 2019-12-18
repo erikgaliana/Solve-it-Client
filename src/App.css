@@ -46,6 +46,30 @@ body {
   font-family: Open Sans;
 }
 
+.Navbar {
+  border-radius: 5px;
+  padding: 15px;
+  background: #67aaf9;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+
+}
+
+.Topbar {
+color:#67aaf9;
+display: flex;
+justify-content: space-around;
+align-items: center;
+
+}
+
+.Container {
+
+  margin-bottom: 75px;
+
+}
 
 .problem, .answer {
   margin: 0 auto;

@@ -39,7 +39,7 @@ class UserProfile extends Component {
         
     
         return (
-            <div>
+            <div className="Container">
                     <div className='Userprofile' >
                         <img src={user.pictureUrl} alt="userimg" ></img>
                             <h2>User's profile</h2>

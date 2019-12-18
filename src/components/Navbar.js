@@ -6,12 +6,12 @@ class Navbar extends Component {
   render() {
     const { user, logout, isLoggedin } = this.props;
     return (
-      <div
-        style={{ borderRadius: '5px', padding: '20px', background: '#686de0' }}>
+      <div >
+        {/* // style={{ borderRadius: '5px', padding: '20px', background: '#686de0' }}> */}
         {isLoggedin ? (
-          <div>
-            <p>Hi ! {user.username}</p>
-            <button onClick={logout}>Logout</button><br />
+          <div className="Navbar">
+            {/* <p>Hi ! {user.username}</p>
+            <button onClick={logout}>Logout</button><br /> */}
 
             <br />
              <Link to="/MyProblems">
@@ -33,19 +33,7 @@ class Navbar extends Component {
             </Link>
             </div>
 
-        ) : (
-          <div>
-            <Link to="/login">
-              {' '}
-              <button>Login</button>{' '}
-            </Link>
-            <br />
-            <Link to="/signup">
-              {' '}
-              <button>Signup</button>{' '}
-            </Link>
-          </div>
-        )}
+        ) : null}
       </div>
     );
   }

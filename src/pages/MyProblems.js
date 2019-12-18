@@ -30,13 +30,13 @@ class MyProblems extends Component {
         // console.log(user);
         console.log(user.myproblems);
         return (
-            <div>
+            <div className="Container">
                 <h1>Welcome to solve it</h1>
-                {/* <h2> your posted problems</h2> */}
+                <h2> your posted problems</h2>
                 
                 {
                     user.myproblems ?
-                    (<h2> your posted problems</h2>,
+                    (
                     user.myproblems.reverse().map((oneproblem)=> {
                             return (
                                 

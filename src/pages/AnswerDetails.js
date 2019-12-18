@@ -93,7 +93,7 @@ class AnswerDetails extends Component {
         // console.log('params', this.props.match.params)
 
         return (
-            <div>
+            <div className="Container">
                
                 <h3>My problem asked is : </h3>
                 <h3> 
