@@ -24,8 +24,15 @@ class Problem {
          
       }
 
+  deleteproblem(id,authorID, category){
+    
+        return this.problem
+        .put((`problems/delete/${id}`), { authorID, category})
+        .then(({ data }) => data)
+             
+          }
 
-  }
+}
 
 
 const problemService = new Problem();

@@ -46,8 +46,9 @@ handlePhotoChange = event => {
     const { username, password,mail,expert} = this.state;
     return (
       <div>
+        
+        <form  className="signupform" onSubmit={this.handleFormSubmit} encType="multipart/form-data">
         <h1>Sign Up</h1>
-        <form onSubmit={this.handleFormSubmit} encType="multipart/form-data">
           <label>Username:</label>
           <input
             type="text"

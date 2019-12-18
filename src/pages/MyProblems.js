@@ -12,6 +12,11 @@ class MyProblems extends Component {
         
     }
 
+    deleteproblem (problemId){
+
+        console.log("problema del boton",problemId);
+    }
+
     componentDidMount (){
         
         
@@ -48,6 +53,8 @@ class MyProblems extends Component {
                                 <p>Category : {oneproblem.category}</p>
                                 <p>Answers : {oneproblem.problemanswers.length}</p>
                                 </Link>
+                                <button key={oneproblem._id} onClick={this.deleteproblem(oneproblem._id)}>Delete</button>
+                                
                                 </div>
                             )
                     }))

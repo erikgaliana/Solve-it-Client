@@ -15,8 +15,8 @@ class Navbar extends Component {
           <div className="Navbar">
             {/* <p>Hi ! {user.username}</p>
             <button onClick={logout}>Logout</button><br /> */}
-            <FontAwesomeIcon icon={faCoffee} style={{ color: 'white' }} />
-            <FontAwesomeIcon icon={faHome} style={{ color: 'white' }}/>
+            {/* <FontAwesomeIcon icon={faCoffee} style={{ color: 'white' }} />
+            <FontAwesomeIcon icon={faHome} style={{ color: 'white' }}/> */}
             
             <br />
              <Link to="/MyProblems">
