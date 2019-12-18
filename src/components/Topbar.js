@@ -20,9 +20,10 @@ class Topbar extends Component {
 
         ) : (
           <div>
-          <img src="https://res.cloudinary.com/ekgaliana/image/upload/v1576627130/solve-it-app/Solveit_logo_200x200_copy_jpmzu9.png" alt=""></img>
+          
+          <img className="landingimage" src="https://res.cloudinary.com/ekgaliana/image/upload/v1576627130/solve-it-app/Solveit_logo_200x200_copy_jpmzu9.png" alt=""></img>
             <br />
-            <Link to="/login">
+            {/* <Link to="/login">
               {' '}
               <button>Login</button>{' '}
             </Link>
@@ -30,7 +31,7 @@ class Topbar extends Component {
             <Link to="/signup">
               {' '}
               <button>Signup</button>{' '}
-            </Link>
+            </Link> */}
           </div>
         )}
       </div>

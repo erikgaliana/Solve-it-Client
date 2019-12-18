@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { withAuth } from '../lib/AuthProvider';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+import { faHome } from "@fortawesome/free-solid-svg-icons";
 
 class Navbar extends Component {
   render() {
@@ -12,7 +15,9 @@ class Navbar extends Component {
           <div className="Navbar">
             {/* <p>Hi ! {user.username}</p>
             <button onClick={logout}>Logout</button><br /> */}
-
+            <FontAwesomeIcon icon={faCoffee} style={{ color: 'white' }} />
+            <FontAwesomeIcon icon={faHome} style={{ color: 'white' }}/>
+            
             <br />
              <Link to="/MyProblems">
               {' '}
@@ -32,7 +37,7 @@ class Navbar extends Component {
               <button className="button is-small is-info is-inverted is-outlined">User Profile</button>{' '}
             </Link>
             </div>
-
+            
         ) : null}
       </div>
     );

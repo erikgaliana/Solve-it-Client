@@ -122,6 +122,30 @@ form {
     justify-content: space-around;
 }
 
+.landingimage {
+    height: auto;
+    max-width: 100%;
+    margin-top: 25px;
+
+}
+
+.loginform {
+
+    padding: 175px 100px;
+    border: 2px solid black;
+    border-radius: 8px;
+    display: inline-flex;
+    height: 200px;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-top: 25px;
+
+}
+
+#loginformh1{
+  font-size: 35px;
+}
+
 .formask {
   padding: 220px 50px;
   border: 2px solid black;
