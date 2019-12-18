@@ -122,6 +122,11 @@ form {
     justify-content: space-around;
 }
 
+.field.is-grouped.is-grouped-centered {
+  justify-content: center;
+  margin-top: 20px;
+}
+
 textarea {
 
   width: 250px;

@@ -16,20 +16,20 @@ class Navbar extends Component {
             <br />
              <Link to="/MyProblems">
               {' '}
-              <button>My Problems</button>{' '}
+              <button className="button is-small is-info is-inverted is-outlined">My Problems</button>{' '}
             </Link>
             <Link to="/AskProblem">
               {' '}
-              <button>Ask a problem</button>{' '}
+              <button className="button is-small is-info is-inverted is-outlined">Ask a problem</button>{' '}
             </Link>
             
             <Link to="/ProblemsToSolve">
               {' '}
-              <button>Problems to Solve</button>{' '}
+              <button className="button is-small is-info is-inverted is-outlined">Problems to Solve</button>{' '}
             </Link>
             <Link to="/UserProfile">
               {' '}
-              <button>User Profile</button>{' '}
+              <button className="button is-small is-info is-inverted is-outlined">User Profile</button>{' '}
             </Link>
             </div>
 

@@ -82,29 +82,50 @@ class AddProblem extends Component {
             { !this.state.updated ?
                     (
             <form onSubmit={this.handleFormSubmit}>
-          
-            <label>Category:</label>
-            <select name="category" value={this.state.category} onChange={this.handleChange } >
-                <option value="dogs">Dogs</option>
-                <option value="cats">Cats</option>
-                <option value="parrots">Parrots</option>
+            
+            <div className="field">
+              <label className="label">Category:</label>
+                <div className="control is-expanded">
+                <div className="select is-fullwidth">
+                    <select name="category" value={this.state.category} onChange={this.handleChange } >
+                      <option value="dogs">Dogs</option>
+                      <option value="cats">Cats</option>
+                      <option value="parrots">Parrots</option>
                 
-             </select>
+                    </select>
+                </div>
+                </div>
+            </div>
 
-          
-             <label>Description:</label>
-             <textarea name="description" 
-               value={this.state.description} 
-                // onChange={ (e) => this.handleChange(e) } />
-                onChange={this.handleChange } />
+             <div className="field">     
+              <label className="label">Description:</label>
+                <div className="control">
+                  <textarea className="textarea" name="description" 
+                     value={this.state.description} 
+                      // onChange={ (e) => this.handleChange(e) } />
+                      onChange={this.handleChange } />
+                </div>
+              </div>
 
-              <input
+              <label className="label">Upload Image</label>
+              <input className="input" 
                 type="file"
                 name="photo"
                 onChange={event => this.handlePhotoChange(event)}
               />
 
-              <button type="submit"  disabled={!this.state.imageReady}>Submit</button>
+            <div className="field is-grouped is-grouped-centered">
+              <div className="control">
+                  <button type="submit" className="button is-link" disabled={!this.state.imageReady}>Submit</button>
+              </div>
+              <div className="control">
+                <button className="button is-text">Cancel</button>
+              </div>
+            </div>
+
+   
+
+
             </form>
         )
           :  
