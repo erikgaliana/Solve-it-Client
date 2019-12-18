@@ -81,7 +81,7 @@ class AddProblem extends Component {
 
             { !this.state.updated ?
                     (
-            <form onSubmit={this.handleFormSubmit}>
+            <form className="formask" onSubmit={this.handleFormSubmit}>
             
             <div className="field">
               <label className="label">Category:</label>
@@ -114,7 +114,7 @@ class AddProblem extends Component {
                 onChange={event => this.handlePhotoChange(event)}
               />
 
-            <div className="field is-grouped is-grouped-centered">
+            <div  className="field is-grouped is-grouped-centered" id="submitButtonAskproblem">
               <div className="control">
                   <button type="submit" className="button is-link" disabled={!this.state.imageReady}>Submit</button>
               </div>
