@@ -50,9 +50,9 @@ class MyProblemDetails extends Component {
             <div className="Container">
 
                 
-                <h2>My problem asked is :</h2>
+                <h2 className="is-size-4">My problem asked is :</h2>
                 <div className="problem">
-                <h2> 
+                <h2 className="is-size-4"> 
                     {
                     user.myproblems ?
                     myproblem.text
@@ -64,7 +64,7 @@ class MyProblemDetails extends Component {
                     <img src={myproblem.pic} alt=""></img>
                    </div>     
                     <hr></hr>
-                    <h3>Answers proposed</h3>
+                    <h3 className="is-size-4">Answers proposed</h3>
                  {
                        
                 user.myproblems ?
@@ -88,7 +88,7 @@ class MyProblemDetails extends Component {
                 }
                     {
                      this.state.problemAnswersEmpty ?
-                     (<h2>No Answers recieved</h2>)
+                     (<br></br>,<h2>No Answers recieved</h2>)
                       : null }
 
                 

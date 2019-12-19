@@ -65,13 +65,13 @@ class UserProfile extends Component {
 
                                 {/* <Link to={`/MyProblems/details/${oneproblem._id}`} className="text-link"> */}
                                 
-                                <p>Problem :{oneproblem.text}</p>
+                                <p className="is-size-5">Problem :{oneproblem.text}</p>
                                 <img src={oneproblem.pic} alt=""></img>
-                                <p>Category : {oneproblem.category}</p>
+                                <p className="is-size-6">Category : {oneproblem.category}</p>
                                 <hr></hr>
-                                <p>Solution : {oneproblem.solution[0].text}</p>
+                                <p className="is-size-5">Solution : {oneproblem.solution[0].text}</p>
                                 <img src={oneproblem.solution[0].pic} alt=""></img>
-                                <p>Solution author: {oneproblem.solution[0].author.username}</p>
+                                <p className="is-size-6">Solution Author: {oneproblem.solution[0].author.username}</p>
                                 {/* </Link> */}
                                 </div>
                             )

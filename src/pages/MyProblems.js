@@ -50,7 +50,7 @@ class MyProblems extends Component {
         const { problems } = this.state;
        
         return (
-            <div className="container">
+            <div className="Container">
                 
                 <h1 className="is-size-3"> Your problems asked</h1>
                 

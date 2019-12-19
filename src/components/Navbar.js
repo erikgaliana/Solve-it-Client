@@ -3,7 +3,10 @@ import { Link } from 'react-router-dom';
 import { withAuth } from '../lib/AuthProvider';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';
-import { faHome } from "@fortawesome/free-solid-svg-icons";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
+import { faQuestionCircle} from "@fortawesome/free-solid-svg-icons";
+import { faComments} from "@fortawesome/free-solid-svg-icons";
+import { faComment} from "@fortawesome/free-solid-svg-icons";
 
 class Navbar extends Component {
   render() {
@@ -18,39 +21,45 @@ class Navbar extends Component {
             {/* <FontAwesomeIcon icon={faCoffee} style={{ color: 'white' }} />
             <FontAwesomeIcon icon={faHome} style={{ color: 'white' }}/> */}
             
-            <nav class="level is-mobile">
+            
+           
+           
+            <nav className="level is-mobile">
              <Link to="/MyProblems">
               {' '}
-              <div class="level-item has-text-centered">
+              <div className="level-item has-text-centered">
               <div>
-              <button className="button is-small is-info is-inverted is-outlined">My Problems</button>{' '}
-           
+              {/* <button className="button is-small is-info is-inverted is-outlined">My Problems</button>{' '} */}
+              <FontAwesomeIcon icon={faComment} style={{ color: 'white', fontSize: '40px' }}/> 
               
               </div>
              </div>
             </Link>
             <Link to="/AskProblem">
               {' '}
-              <div class="level-item has-text-centered">
+              <div className="level-item has-text-centered">
                 <div>
-              <button className="button is-small is-info is-inverted is-outlined">Ask a problem</button>{' '}
+              {/* <button className="button is-small is-info is-inverted is-outlined">Ask a problem</button>{' '} */}
+              <FontAwesomeIcon icon={faQuestionCircle} style={{ color: 'white', fontSize: '40px' }}/> 
               </div>
               </div>
             </Link>
             
             <Link to="/ProblemsToSolve">
               {' '}
-              <div class="level-item has-text-centered">
+              <div className="level-item has-text-centered">
                 <div>
-              <button className="button is-small is-info is-inverted is-outlined">Problems to Solve</button>{' '}
+              {/* <button className="button is-small is-info is-inverted is-outlined">Problems to Solve</button>{' '} */}
+              <FontAwesomeIcon icon={faComments} style={{ color: 'white', fontSize: '40px' }}/> 
               </div>
               </div>
             </Link>
             <Link to="/UserProfile">
               {' '}
-              <div class="level-item has-text-centered">
+              <div className="level-item has-text-centered">
                 <div>
-              <button className="button is-small is-info is-inverted is-outlined">User Profile</button>{' '}
+              {/* <button className="button is-small is-info is-inverted is-outlined">User Profile</button>{' '} */}
+              <FontAwesomeIcon icon={faUser} style={{ color: 'white', fontSize: '35px' }}/> 
               </div>
              </div>
             </Link>
