@@ -52,7 +52,7 @@ class Login extends Component {
 
           <div className="field is-grouped is-grouped-centered">
              <div className="control">
-          <input className="button is-link is-outlined" type="submit" value="Login" />
+          <input class="button is-link is-outlined" type="submit" value="Login" />
           </div>
           </div>
         </form>
