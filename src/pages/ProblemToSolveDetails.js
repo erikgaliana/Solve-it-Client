@@ -131,17 +131,17 @@ class ProblemToSolveDetails extends Component {
 
                     <div  className="field is-grouped is-grouped-centered" id="submitButtonAskproblem">
                     <div className="control">
-                        <button type="submit"  className="button is-link" disabled={!this.state.imageReady}>Submit</button>
+                        <button type="submit"  className="button is-link is-outlined" disabled={!this.state.imageReady}>Submit</button>
                     {/* <input type="submit" value="Submit" /> */}
                     </div></div>
                      </form>)
                     :  
-                     ( <h4>Answer Sent</h4> ,
-                         <Link to={`/MyProblems`}>
-                     
-                            <button>go to my problems</button>
+                     ( <div><h4 className="is-size-3">Answer Sent</h4> ,
+                         <Link to={"/ProblemsToSolve"}>
+                            
+                            <button className="button is-link is-outlined">Back to Problems to Solve</button>
                         
-                        </Link>)
+                        </Link></div>)
                     } 
                     
             </div>

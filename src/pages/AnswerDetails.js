@@ -129,11 +129,11 @@ class AnswerDetails extends Component {
                     (
                         <div>
                     
-                        <button onClick={this.updateUser}>Add to Problems Solved</button>
+                        <button  className="button is-link is-outlined" onClick={this.updateUser}>Add to Problems Solved</button>
                     
                          <Link to={`/MyProblems/details/${id}`}>
                           {' '}
-                         <button>Discard</button>
+                         <button className="button is-danger is-outlined">Discard</button>
                          
                          {' '}
                          </Link>
@@ -143,7 +143,7 @@ class AnswerDetails extends Component {
                        (<div> <h5>Problem added to problems solved</h5>
                          <Link to={`/UserProfile`}>
                         
-                        <button>go to profile</button>
+                        <button className="button is-info">go to profile</button>
                         
                      </Link></div>)}
                         

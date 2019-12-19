@@ -116,7 +116,7 @@ class AddProblem extends Component {
 
             <div  className="field is-grouped is-grouped-centered" id="submitButtonAskproblem">
               <div className="control">
-                  <button type="submit" className="button is-link" disabled={!this.state.imageReady}>Submit</button>
+                  <button type="submit" className="button is-link is-outlined" disabled={!this.state.imageReady}>Submit</button>
               </div>
              
             </div>
@@ -131,7 +131,7 @@ class AddProblem extends Component {
                   <h4>Problem Sent</h4>
                   <Link to={`/MyProblems`}>
                      
-                  <button>Go to my problems asked</button>
+                  <button className="button is-link is-outlined">Go to my problems asked</button>
                         
                   </Link></div>)
           } 

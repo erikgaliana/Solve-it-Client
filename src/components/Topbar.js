@@ -25,12 +25,12 @@ class Topbar extends Component {
             <br />
             <Link to="/login">
               {' '}
-              <button>Login</button>{' '}
+              <button className="button is-link is-outlined" >Login</button>{' '}
             </Link>
             
             <Link to="/signup">
               {' '}
-              <button>Signup</button>{' '}
+              <button className="button is-link is-outlined">Signup</button>{' '}
             </Link>
           </div>
         )}

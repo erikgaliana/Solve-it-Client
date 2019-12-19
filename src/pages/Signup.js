@@ -100,7 +100,7 @@ handlePhotoChange = event => {
 
           <div className="field is-grouped is-grouped-centered">
              <div className="control">
-          <button type="submit" className="button is-link" disabled={!this.state.imageReady}>Submit</button>
+          <button type="submit" className="button is-link is-outlined" disabled={!this.state.imageReady}>Submit</button>
           </div>
           </div>
         </form>
