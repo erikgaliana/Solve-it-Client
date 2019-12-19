@@ -46,7 +46,7 @@ class UserProfile extends Component {
                         <p>Name : {user.username}</p>
                         
                         <p>Expert on : {user.expert}</p>
-                        <p>Points : {user.points}</p>
+                        {/* <p>Points : {user.points}</p> */}
                         <Link to={`/EditUserProfile`}>
                      
                          <button>Edit User Profile</button>

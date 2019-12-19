@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { withAuth } from '../lib/AuthProvider';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { faQuestionCircle} from "@fortawesome/free-solid-svg-icons";
 import { faComments} from "@fortawesome/free-solid-svg-icons";

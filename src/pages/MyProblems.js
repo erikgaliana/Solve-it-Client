@@ -40,7 +40,7 @@ class MyProblems extends Component {
                 return el._id !== id
             })
             this.setState({
-                problems: newArr
+                problems: newArr.reverse()
             })
         })
         .catch ((err) => console.log(err));
