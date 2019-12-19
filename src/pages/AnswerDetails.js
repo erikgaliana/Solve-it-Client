@@ -38,13 +38,13 @@ class AnswerDetails extends Component {
         // console.log("user id",user._id);
         // console.log("problem id", id);
         // console.log("answerId", AnsId);
-        const answerauthorId = getAnswer(id,user,AnsId).author._id;
+        const category = getAnswer(id,user,AnsId).category;
         // console.log(answer);
         // console.log("answerauthor",getAnswer(id,user,AnsId).author._id);
            
         // problemService.updateproblem(id,solution, answerauthorId)
         
-        const firstPromise = problemService.updateproblem(id,AnsId, answerauthorId)
+        const firstPromise = problemService.updateproblem(id,AnsId, category)
             .then(() => { console.log("problem updated")})
             .catch( (err) => console.log(err) )
 

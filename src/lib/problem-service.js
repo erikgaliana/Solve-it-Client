@@ -16,18 +16,18 @@ class Problem {
            
   }
 
-  updateproblem(id,solution, answerauthorId){
-    
+  updateproblem(id,solution, category){
+    console.log("category inside service",category);
     return this.problem
-    .put((`problems/update/${id}`), { solution, answerauthorId})
+    .put((`problems/update/${id}`), { solution, category})
     .then(({ data }) => data)
          
       }
 
   deleteproblem(id,authorID, category){
-        console.log("value insiodde service",id);
-        console.log(authorID);
-        console.log(category);
+        // console.log("value insiodde service",id);
+        // console.log(authorID);
+        // console.log(category);
         return this.problem
         .put((`problems/delete/${id}`), {authorID, category})
         .then(({ data }) => data)
