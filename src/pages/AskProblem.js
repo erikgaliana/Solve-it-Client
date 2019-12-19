@@ -77,7 +77,7 @@ class AddProblem extends Component {
 
           <div className="Container">
 
-            <h1>Add a problem you would like to be solved</h1>
+            <h1 className="is-size-3">Ask a Problem</h1>
 
             { !this.state.updated ?
                     (
@@ -100,7 +100,7 @@ class AddProblem extends Component {
              <div className="field">     
               <label className="label">Description:</label>
                 <div className="control">
-                  <textarea className="textarea" name="description" 
+                  <textarea className="textarea is-focused" name="description" 
                      value={this.state.description} 
                       // onChange={ (e) => this.handleChange(e) } />
                       onChange={this.handleChange } />
@@ -118,9 +118,7 @@ class AddProblem extends Component {
               <div className="control">
                   <button type="submit" className="button is-link" disabled={!this.state.imageReady}>Submit</button>
               </div>
-              <div className="control">
-                <button className="button is-text">Cancel</button>
-              </div>
+             
             </div>
 
    
@@ -130,7 +128,7 @@ class AddProblem extends Component {
         )
           :  
                ( <div>
-                  <h4>Question Sent</h4>
+                  <h4>Problem Sent</h4>
                   <Link to={`/MyProblems`}>
                      
                   <button>Go to my problems asked</button>

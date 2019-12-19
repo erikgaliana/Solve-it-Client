@@ -11,8 +11,8 @@ class Topbar extends Component {
         {isLoggedin ? (
           <div className="Topbar" >
           <div>
-            <h3>Hi ! {user.username}</h3></div>
-            <img src="https://res.cloudinary.com/ekgaliana/image/upload/v1576627130/solve-it-app/Solveit_logo_200x200_copy_jpmzu9.png" alt=""></img>
+            <h3 >Hi ! {user.username}</h3></div>
+            <img className="logoImage" src="https://res.cloudinary.com/ekgaliana/image/upload/v1576627130/solve-it-app/Solveit_logo_200x200_copy_jpmzu9.png" alt=""></img>
             <button onClick={logout} className="button is-small is-info is-outlined">Logout</button>
 
             

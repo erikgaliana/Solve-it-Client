@@ -91,7 +91,7 @@ class ProblemToSolveDetails extends Component {
 
         return (
             <div className="Container">
-                <h1> Problem to solve details</h1>
+                <h1 className="is-size-4"> Problem to solve details</h1>
                 <div className="problem">
                 
                 <h4> Problem asked : </h4>
@@ -107,27 +107,33 @@ class ProblemToSolveDetails extends Component {
 
                 
                  </div>
-                 <br></br>
+                 
 
-                    <h3>propose solution :</h3>
+                    <h3 className="is-size-4">Propose solution :</h3>
                     { !this.state.updated ?
                     (
-                        <form onSubmit={this.handleformsubmit}>
-
-                         <label>Answer text :</label>
-                            <textarea name="description" 
+                        <form className="formsolution" onSubmit={this.handleformsubmit}>
+                        
+                        <div className="field">
+                         <label className="label">Answer text :</label>
+                            <div className="control">
+                            <textarea className="textarea is-focused" name="description" 
                             value={this.state.description} 
                             onChange={this.handleChange}/>
+                            </div></div>
 
-                        <input
+                            <label className="label">Upload Image</label>
+                        <input className="input" 
                             type="file"
                             name="photo"
                             onChange={event => this.handlePhotoChange(event)}
                         />
 
-                        <button type="submit"  disabled={!this.state.imageReady}>Submit</button>
+                    <div  className="field is-grouped is-grouped-centered" id="submitButtonAskproblem">
+                    <div className="control">
+                        <button type="submit"  className="button is-link" disabled={!this.state.imageReady}>Submit</button>
                     {/* <input type="submit" value="Submit" /> */}
-
+                    </div></div>
                      </form>)
                     :  
                      ( <h4>Answer Sent</h4> ,

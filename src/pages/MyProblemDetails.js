@@ -49,28 +49,20 @@ class MyProblemDetails extends Component {
             
             <div className="Container">
 
-             
-                <h2>My problem asked is :</h2>
                 
-                <h3>
-                    {/* {
-                    user.myproblems ?
-                    getProblem(id,user).text
-                    
-                    :
-                    <p>loading</p>
-                    } */}
-
+                <h2>My problem asked is :</h2>
+                <div className="problem">
+                <h2> 
                     {
                     user.myproblems ?
                     myproblem.text
                     :
                     <p>loading</p>
                     }
-                </h3>
+                </h2>
 
                     <img src={myproblem.pic} alt=""></img>
-                        
+                   </div>     
                     <hr></hr>
                     <h3>Answers proposed</h3>
                  {

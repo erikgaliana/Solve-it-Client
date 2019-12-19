@@ -25,9 +25,11 @@ class Problem {
       }
 
   deleteproblem(id,authorID, category){
-    
+        console.log("value insiodde service",id);
+        console.log(authorID);
+        console.log(category);
         return this.problem
-        .put((`problems/delete/${id}`), { authorID, category})
+        .put((`problems/delete/${id}`), {authorID, category})
         .then(({ data }) => data)
              
           }

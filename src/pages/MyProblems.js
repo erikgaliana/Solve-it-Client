@@ -1,61 +1,66 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 
 import userService from '../lib/user-service';
 import { withAuth } from '../lib/AuthProvider';
+import OneProblem from '../components/OneProblem';
+import problemService from '../lib/problem-service';
 
 
 class MyProblems extends Component {
     state = {
         user:{},
-        problemsempty : false
-        
+        problemsempty : false,
+        problems :[]
     }
 
-    deleteproblem (problemId){
-
-        console.log("problema del boton",problemId);
-    }
-
-    componentDidMount (){
-        
-        
+    
+    componentDidMount (){  
         const id  = this.props.user._id;
         userService.getOneById(id)
         .then ((oneUser)=>{
-            this.setState({user : oneUser});
+            this.setState({
+                user : oneUser,
+                problems : oneUser.myproblems
+            });
             if (oneUser.myproblems.length===0){ this.setState({problemsempty : true });}
+            
+        })
+        .catch ((err) => console.log(err));
+        
+    }
+
+    // deleteproblem(id,authorID, category)
+    
+    deleteProblem = (id,author,category)=> {
+        
+         problemService.deleteproblem(id,author,category)
+         .then (()=>{
+            
+            const newArr = this.state.problems.filter((el) => {
+                return el._id !== id
+            })
+            this.setState({
+                problems: newArr
+            })
         })
         .catch ((err) => console.log(err));
     }
     
-    
     render() {
-        const { user } = this.state;
-        // console.log(user);
-        console.log(user.myproblems);
+        const { problems } = this.state;
+       
         return (
-            <div className="Container">
-                <h1>Welcome to solve it</h1>
-                <h2> your posted problems</h2>
+            <div className="container">
+                
+                <h1 className="is-size-3"> Your problems asked</h1>
                 
                 {
-                    user.myproblems ?
+                    problems ?
                     (
-                    user.myproblems.reverse().map((oneproblem)=> {
+                    problems.reverse().map((oneproblem)=> {
                             return (
                                 
-                                <div className='problem' key={oneproblem._id}>
-
-                                <Link to={`/MyProblems/details/${oneproblem._id}`} className="text-link">
-                                
-                                <p>Problem :{oneproblem.text}</p>
-                                <p>Category : {oneproblem.category}</p>
-                                <p>Answers : {oneproblem.problemanswers.length}</p>
-                                </Link>
-                                <button key={oneproblem._id} onClick={this.deleteproblem(oneproblem._id)}>Delete</button>
-                                
-                                </div>
+                                <OneProblem delete={this.deleteProblem} oneProblem={oneproblem} key={oneproblem._id} />
                             )
                     }))
                     :( <h4>loading</h4>)

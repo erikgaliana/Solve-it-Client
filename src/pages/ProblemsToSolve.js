@@ -29,7 +29,7 @@ class ProblemsToSolve extends Component {
 
         return (
             <div className="Container">
-            <h1> Problems to solve </h1>
+            <h1 className="is-size-3"> Problems to solve </h1>
                 {
                     user.problemstosolve ?
                     user.problemstosolve.reverse().map((oneproblem)=> {
@@ -38,9 +38,10 @@ class ProblemsToSolve extends Component {
                                 <div className='problem' key={oneproblem._id} >
 
                                 <Link to={`/ProblemsToSolve/details/${oneproblem._id}`} className="text-link">
-                                <p>Problem : {oneproblem.text}</p>
-                                <p>Problem image :<br></br> <img src={oneproblem.pic} alt=""></img></p>
-                                <p>author : {oneproblem.author.username}</p>
+                                <p className="is-size-4"> {oneproblem.text}</p>
+                                 <img src={oneproblem.pic} alt=""></img>
+                                <p className="is-size-6">Author : {oneproblem.author.username}</p>
+                                <p className="is-size-6">Category : {oneproblem.category}</p>
                                 
                                 </Link>
                                 </div>

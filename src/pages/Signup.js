@@ -49,46 +49,60 @@ handlePhotoChange = event => {
         
         <form  className="signupform" onSubmit={this.handleFormSubmit} encType="multipart/form-data">
         <h1>Sign Up</h1>
-          <label>Username:</label>
-          <input
+        <div className="field">
+          <label className="label">Username:</label>
+          <input className="input is-info" 
             type="text"
             name="username"
             value={username}
             onChange={this.handleChange}
           />
+          </div>
 
-          <label>Password:</label>
-          <input
+          <div className="field">
+          <label className="label">Password:</label>
+          <input className="input is-info" 
             type="password"
             name="password"
             value={password}
             onChange={this.handleChange}
           />
+          </div>
        
-          <label>Mail:</label>
-          <input
+          <div className="field">
+          <label className="label">Mail:</label>
+          <input className="input is-info" 
             type="mail"
             name="mail"
             placeholder="usermail@example.com"
             value={mail}
             onChange={this.handleChange}
           />
+         </div>
 
-
-          <label>Expert at :</label>
+         <div className="field">
+          <label className="label">Expert at :</label>
+          <div className="control is-expanded">
+                <div className="select is-fullwidth">
             <select name="expert" value={expert} onChange={this.handleChange } >
                 <option value="dogs">Dogs</option>
                 <option value="cats">Cats</option>
                 <option value="parrots">Parrots</option>
              </select>
+          </div></div></div>
 
-             <input
+          <label className="label">Upload Image</label>
+             <input className="input"
             type="file"
             name="photo"
             onChange={event => this.handlePhotoChange(event)}
           />
 
-          <button type="submit"  disabled={!this.state.imageReady}>Submit</button>
+          <div className="field is-grouped is-grouped-centered">
+             <div className="control">
+          <button type="submit" className="button is-link" disabled={!this.state.imageReady}>Submit</button>
+          </div>
+          </div>
         </form>
 
         <p>Already have account?</p>
