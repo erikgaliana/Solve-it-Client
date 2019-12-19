@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import { withAuth } from '../lib/AuthProvider';
 import userService from '../lib/user-service';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faComments} from "@fortawesome/free-solid-svg-icons";
+import { faQuestionCircle} from "@fortawesome/free-solid-svg-icons";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
 
 
 // function getProblem(id,user) {
@@ -47,11 +51,11 @@ class UserProfile extends Component {
                         
                         <p>Expert on : {user.expert}</p>
                         {/* <p>Points : {user.points}</p> */}
-                        <Link to={`/EditUserProfile`}>
+                        {/* <Link to={`/EditUserProfile`}>
                      
                          <button>Edit User Profile</button>
                         
-                         </Link>
+                         </Link> */}
 
                     </div>
 
@@ -65,13 +69,19 @@ class UserProfile extends Component {
 
                                 {/* <Link to={`/MyProblems/details/${oneproblem._id}`} className="text-link"> */}
                                 
-                                <p className="is-size-5">Problem :{oneproblem.text}</p>
+                                <p className="is-size-5">
+                                 <FontAwesomeIcon icon={faQuestionCircle} style={{ color: 'white', fontSize: '20px' }}/>
+                                : {oneproblem.text}</p>
                                 <img src={oneproblem.pic} alt=""></img>
                                 <p className="is-size-6">Category : {oneproblem.category}</p>
                                 <hr></hr>
-                                <p className="is-size-5">Solution : {oneproblem.solution[0].text}</p>
+                                <p className="is-size-5">
+                                 <FontAwesomeIcon icon={faComments} style={{ color: 'white', fontSize: '20px' }}/>
+                                : {oneproblem.solution[0].text}</p>
                                 <img src={oneproblem.solution[0].pic} alt=""></img>
-                                <p className="is-size-6">Solution Author: {oneproblem.solution[0].author.username}</p>
+                                <p className="is-size-6">
+                                <FontAwesomeIcon icon={faUser } style={{ color: 'white', fontSize: '20px' }}/>
+                                : {oneproblem.solution[0].author.username}</p>
                                 {/* </Link> */}
                                 </div>
                             )

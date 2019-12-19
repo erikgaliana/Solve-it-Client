@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import userService from '../lib/user-service';
 import { withAuth } from '../lib/AuthProvider';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faComments} from "@fortawesome/free-solid-svg-icons";
+import { faQuestionCircle} from "@fortawesome/free-solid-svg-icons";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
 
 
 function getProblem(id,user) {
@@ -52,6 +56,7 @@ class MyProblemDetails extends Component {
                 
                 <h2 className="is-size-4">My problem asked is :</h2>
                 <div className="problem">
+                <FontAwesomeIcon icon={faQuestionCircle} style={{ color: 'white', fontSize: '20px' }}/>
                 <h2 className="is-size-4"> 
                     {
                     user.myproblems ?
@@ -72,11 +77,13 @@ class MyProblemDetails extends Component {
                             return (
                                 
                                 <div className='answer' key={oneanswer._id}>
+                                <FontAwesomeIcon icon={faComments} style={{ color: 'white', fontSize: '22px' }}/>
 
                                 <Link to={`/MyProblems/details/${id}/AnswerDetails/${oneanswer._id}`} className="text-link">
-                                <p>Answer : {oneanswer.text}</p>
-                                <p> Answer picture :<br></br> <img src={oneanswer.pic} alt=""></img></p>
-                                <p> Answer author : {oneanswer.author.username} </p>
+                                <p className="is-size-4">{oneanswer.text}</p>
+                                <img src={oneanswer.pic} alt=""></img>
+                                <p> <FontAwesomeIcon icon={faUser} style={{ color: 'white', fontSize: '20px' }}/>
+                                   {oneanswer.author.username} </p>
                                  </Link> 
                                 </div>
                             )

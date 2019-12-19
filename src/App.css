@@ -75,7 +75,10 @@ align-items: center;
   box-shadow: 5px 11px 12px -7px rgba(125,150,201,1);
 }
 
+#imagedetails {
 
+  width:300px;
+}
 
 
 .answer {
@@ -89,10 +92,19 @@ align-items: center;
   
   text-decoration: inherit;
   background: #a9cef9;
-  font-family: poppins;
+  font-family: Helvetica;
   -webkit-box-shadow: 5px 11px 12px -7px rgba(125,150,201,1);
   -moz-box-shadow: 5px 11px 12px -7px rgba(125,150,201,1);
   box-shadow: 5px 11px 12px -7px rgba(125,150,201,1);
+}
+
+.answersinfo {
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: white;
+  font-weight: 700;
+  
 }
 
 .problem img, .answer img{

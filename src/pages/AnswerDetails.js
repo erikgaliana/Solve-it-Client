@@ -3,6 +3,10 @@ import { withAuth } from '../lib/AuthProvider';
 import userService from '../lib/user-service';
 import problemService from '../lib/problem-service';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faComments} from "@fortawesome/free-solid-svg-icons";
+import { faQuestionCircle} from "@fortawesome/free-solid-svg-icons";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
 
 function getProblem(id,user) {
     const result= user.myproblems.find(element => element._id=== id);
@@ -88,15 +92,19 @@ class AnswerDetails extends Component {
         const { myproblem} = this.state;
         const { answer } = this.state;
 
-        console.log("user charged",this.state.updated)
+        console.log("user charged",this.state.updated);
+        console.log("author of answer", answer.author
+        );
 
         // console.log('params', this.props.match.params)
 
         return (
             <div className="Container">
-               
-                <h3>My problem asked is : </h3>
-                <h3> 
+                
+                <h3 className="is-size-4">My problem asked is : </h3>
+                <div className="problem">
+                <h3 className="is-size-5"> 
+                <FontAwesomeIcon icon={faQuestionCircle} style={{ color: 'white', fontSize: '20px' }}/>
                     {
                     user.myproblems ?
                     myproblem.text
@@ -105,22 +113,25 @@ class AnswerDetails extends Component {
                     }
                 </h3>
                 <img src={myproblem.pic} alt=""></img>
+                </div>
                 <hr></hr>
                 
                     { ((!this.state.updated)&&(user.myproblems)) ?
 
-                     (
-                        <h3> Answer Details</h3>,
+                     (  <div>
+                        <h3 className="is-size-4"> Answer Details</h3>,
                     
                     
                          <div className='answer' >
-                         <p>Answer details : { answer.text } </p>
-                         {answer.pic ?
-                         (<p> Picture : </p>,<br></br>)
-                        : null }
-                         <img src={answer.pic} alt=""></img>
-                    
-                        </div>
+                         <p className="is-size-4"> 
+                         <FontAwesomeIcon icon={faComments} style={{ color: 'white', fontSize: '20px' }}/>
+                         { answer.text } </p>
+                        
+                         <img id="imagedetails" src={answer.pic} alt=""></img>
+                         {/* <p> <FontAwesomeIcon icon={faUser} style={{ color: 'white', fontSize: '20px' }}/>
+                                   {answer.author.username} </p> */}
+                             
+                             </div></div>
                      )
                     :  null }
 
@@ -143,7 +154,7 @@ class AnswerDetails extends Component {
                        (<div> <h5>Problem added to problems solved</h5>
                          <Link to={`/UserProfile`}>
                         
-                        <button className="button is-info">go to profile</button>
+                        <button className="button is-link is-outlined">go to profile</button>
                         
                      </Link></div>)}
                         
