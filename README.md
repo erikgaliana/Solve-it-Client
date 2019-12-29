@@ -207,13 +207,13 @@ Answers model
 
 
 
-### Git
+### GitHub
 
-The url to your repository and to your deployed project
+[Client Repository](https://github.com/erikgaliana/Solve-it-Client)
 
-[Repository Link]()
+[Server Repository](https://github.com/erikgaliana/Solveit-server-v2)
 
-[Deploy Link]()
+[Deploy Link](https://solveitapp.herokuapp.com/)
 
 
 
@@ -223,6 +223,4 @@ The url to your repository and to your deployed project
 
 ### Slides
 
-The url to your presentation slides
-
-[Slides Link](https://docs.google.com/presentation/d/1P5FIi0vHZBUcgUtmt1M4_lLCO5dwdJ4UOgtJa4ehGfk/edit?usp=sharing)
+[Slides Link](https://docs.google.com/presentation/d/1EMXLbaZ9w-EUtdVOb-lHWrEL6W_3imFUzu1hxSstYQg/edit#slide=id.gc6f80d1ff_0_5)
