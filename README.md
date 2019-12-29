@@ -1,68 +1,228 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# SOLVE IT - module 3
 
-## Available Scripts
+<br>
 
-In the project directory, you can run:
+## Description
 
-### `npm start`
+Solve it, it's a social network where users can post problems and other users that are experts in problem's subject can propose answers to solve it. Users can post problems anb post solutions to other users problems as an experts in that problem's subject.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<br>
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## User Stories
 
-### `npm test`
+- **404** -  As a user I want to see a nice 404 page when I go to a page that doesn’t exist so that I know it was my fault.
+- **500** - As a user I want to see a nice error page when the super team screws it up so that I know that is not my fault.
+- **landing** - As a user I want to be able to access the landing page and login/sign up.
+- **sign up**  - As a user I want to sign up on the web page so I can post problems to get solved or solve problems from my expertise area.
+- **login** - As a user I want to be able to log in on the web page so that I can get back to my account.
+- **logout** - As a user I want to be able to log out from the web page so that I can make sure no one will access my account.
+- **homepage** - As a user I want to read my Problems and check if they have answers. 
+- **ask problem**  - As a user I want to be able to add problems to the app so Experts can solve it.
+- **read answers**  - As a user I want to click on one problem and read the answers posted by Experts.
+- **answer**  - As a user I want to click  on one answer to get all details, then I can validate it adding it to my solutions stored in user's profile or discard it.
+- **problems to solve** - As a user I want to see all problems about my expertise area that users post.
+- **problem** - As a user I want to see a problem details and propose an answer to solve it.
+- **profile** - As a user I want to see  my problems solved and my user data.
+- **edit profile** - As a user I want to be able to edit my profile.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<br>
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+# Client / Frontend
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 
 
-### `npm run eject`
+## Routes (React App)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+| Path                                | Component                   | Permissions | Behavior                                                     |
+| ----------------------------------- | --------------------------- | ----------- | ------------------------------------------------------------ |
+| `/`                                 | SplashPage                  | public      | Landing page                                                 |
+| `/signup`                           | SignupPage                  | anon only   | Signup form, link to login, navigate to problemslistpage after signup |
+| `/login`                            | LoginPage                   | anon only   | Login form, link to signup, navigate to problemslistpage after login |
+| `/logout`                           | n/a                         | anon only   | Navigate to homepage after logout, expire session            |
+| `/myproblems`                       | ProblemsListPage            | user only   | Shows all User's problems in a list                          |
+| `/myproblems/add`                   | ProblemAddPage              | user only   | Adds a User'sProblem                                         |
+| `/myproblems/:id`                   | ProblemDetailPage           | user only   | Details of selected Problem and proposed Answers             |
+| `/myproblems/answer/:id`            | AnswerDetailPage            | user only   | Details of Answer proposed to user's problem                 |
+| `/myproblems/tosolve`               | ProblemstoSolveListPage     | user only   | Shows all user's problems to solve in a list                 |
+| `/myproblems/tosolve/:id`           | ProblemtoSolveDetailPage    | user only   | Shows all user's problems to solve in a list                 |
+| `/myproblems/tosolve/:id/addanswer` | ProblemtoSolveAddAnswerPage | user only   | Adds an Answer to Problem to Solve.                          |
+| `/profile`                          | ProfilePageComponent        | user only   | See user's profile data and User's problems solved list.     |
+| `/edit-profile`                     | EditProfilePageComponent    | user only   | Form to update the user's data                               |
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Components
 
-## Learn More
+- SplashPage
+- LoginPage
+- SignupPage
+- MyProblemsListPage
+- OneProblemCard
+- MyProblemAddPage
+- ProblemDetailPage
+- OneAnswerCard
+- AnswerDetailPage
+- ProblemstoSolveListPage
+- ProblemtoSolveAddAnswerPage
+- ProfilePageComponent
+- EditProfilePageComponent
+- Navbar
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+## Pages
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+- Landing Page.
 
-### Analyzing the Bundle Size
+- Sign in Page (anon only)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+- Log in Page (anon only)
 
-### Making a Progressive Web App
+- MyProblems List Page (user only)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+- MyProblem Detail Page (user only)
 
-### Advanced Configuration
+- MyProblem Answer Detail Page (user only)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+- Add new User's Problem (user only)
 
-### Deployment
+- User's list of Problems to solve (user only)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+- User's Problem to solve Detail Page (user only)
 
-### `npm run build` fails to minify
+- My Profile Page (user only)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- MyProblem Solved Detail Page
+
+- Edit User's Profile Page (user only)
+
+- 404 Page (public)
+
+  
+
+## Services
+
+- Auth Service
+  - auth.login(user)
+  - auth.signup(user)
+  - auth.logout()
+  - auth.me()
+- Problem Service
+  - Problem.askProblem ( data )  
+  - Problem.updateproblem ( id, {solution: answerId}, category )
+  - Problem.deleteproblem ( id, authorID, category ) 
+- Answer Service
+  - Answer.sendanswer(data) 
+- User Service
+  - User.edit(id, data)
+  - User.update(id, data)
+  - User Service
+  
+- Cloudinary Service
+  - Cloudinary.imageUpload ( imageFile )
+
+# Server / Backend
+
+## Models
+
+User model
+
+```javascript
+{
+  name : String,
+  email : String unique,
+  password : String,
+  picture : String,
+  expert-field : String,
+  points : Number,
+  myproblems: [problemId],
+  problemstosolve: [problemId],
+  myproblemsolved: [problemId]
+}
+
+```
+
+
+
+Problems model
+
+```javascript
+{
+  text: String,
+  author : userId,
+  pic : String,
+  problem-answers : [answerId],
+  solution : answerId,
+  category : String
+}
+
+```
+
+Answers model
+
+```javascript
+{
+  text : String,
+  author : userId,
+  pic : String,
+  problem-to-solve : problemId,
+  category: String
+}
+
+```
+
+
+
+<br>
+
+## API Endpoints (backend routes)
+
+| HTTP Method | URL                    | Request Body                    | Success status | Error Status | Description                                                  |
+| ----------- | ---------------------- | ------------------------------- | -------------- | ------------ | ------------------------------------------------------------ |
+| GET         | `/auth/profile    `    | Saved session                   | 200            | 404          | Check if user is logged in and return profile page           |
+| POST        | `/auth/signup`         | {name, email, password, expert} | 201            | 404          | Checks if fields not empty (422) and user not exists (409), then create user with encrypted password, and store user in session |
+| POST        | `/auth/login`          | {username, password}            | 200            | 401          | Checks if fields not empty (422), if user exists (404), and if password matches (404), then stores user in session |
+| POST        | `/auth/logout`         | (empty)                         | 204            | 400          | Logs out the user                                            |
+| POST        | `/problems`            | {}                              | 201            | 400          | Create and save a new problem                                |
+| PUT         | `/problems/update/:id` | {text,problem,img}              | 200            | 400          | Update problem status                                        |
+| DELETE      | `/problems/delete/:id` | {id}                            | 201            | 400          | delete user's problem( BACKLOG)                              |
+| POST        | `/answers`             | {text,author,img}               | 200            | 404          | add answer to a specific problem to solve.                   |
+| DELETE      | `/answers/delete/:id`  | {id}                            | 200            | 400          | delete answer ( BACKLOG)                                     |
+| PUT         | `/users/:id`           | {user}                          |                |              | edit user profile                                            |
+| PUT         | `/users/updateOne:id`  | {key: data}                     |                |              | edit one specific data in user profile                       |
+
+
+
+
+
+
+
+<br>
+
+
+
+## Links
+
+
+
+### Git
+
+The url to your repository and to your deployed project
+
+[Repository Link]()
+
+[Deploy Link]()
+
+
+
+<br>
+
+
+
+### Slides
+
+The url to your presentation slides
+
+[Slides Link](https://docs.google.com/presentation/d/1P5FIi0vHZBUcgUtmt1M4_lLCO5dwdJ4UOgtJa4ehGfk/edit?usp=sharing)

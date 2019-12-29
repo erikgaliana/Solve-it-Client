@@ -36,7 +36,7 @@ class AddProblem extends Component {
         const { category ,description , pic} = this.state;
         const { user } = this.state;
         
-        problemService.askproblem(category,description,pic, user._id )
+        problemService.askProblem(category,description,pic, user._id )
         .then( () => {
             
             this.setState({ description: "", category: "dogs", pic : "noimage.jpg"});

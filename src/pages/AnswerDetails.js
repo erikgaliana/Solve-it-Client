@@ -44,7 +44,7 @@ class AnswerDetails extends Component {
            
         // problemService.updateproblem(id,solution, answerauthorId)
         
-        const firstPromise = problemService.updateproblem(id,AnsId, category)
+        const firstPromise = problemService.updateProblem(id,AnsId, category)
             .then(() => { console.log("problem updated")})
             .catch( (err) => console.log(err) )
 

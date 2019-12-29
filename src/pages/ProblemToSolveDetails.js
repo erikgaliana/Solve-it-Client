@@ -47,7 +47,7 @@ class ProblemToSolveDetails extends Component {
 
         // console.log("description", description);
         // description,pic,category,problemtosolve,authorID
-        answerService.sendanswer(description,pic,user.expert,id,user._id )
+        answerService.sendAnswer(description,pic,user.expert,id,user._id )
         .then( () => {
             
             this.setState({ description: "", pic : "noimage.jpg"});

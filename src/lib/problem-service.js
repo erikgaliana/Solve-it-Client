@@ -8,7 +8,7 @@ class Problem {
     });
   }
 
-  askproblem(category,description,pic, authorID ) {
+  askProblem(category,description,pic, authorID ) {
     
     return this.problem
       .post('problems', { category, text : description,pic, authorID  })
@@ -16,7 +16,7 @@ class Problem {
            
   }
 
-  updateproblem(id,solution, category){
+  updateProblem(id,solution, category){
     console.log("category inside service",category);
     return this.problem
     .put((`problems/update/${id}`), { solution, category})
@@ -24,7 +24,7 @@ class Problem {
          
       }
 
-  deleteproblem(id,authorID, category){
+  deleteProblem(id,authorID, category){
         // console.log("value insiodde service",id);
         // console.log(authorID);
         // console.log(category);

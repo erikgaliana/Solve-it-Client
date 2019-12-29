@@ -33,7 +33,7 @@ class MyProblems extends Component {
     
     deleteProblem = (id,author,category)=> {
         
-         problemService.deleteproblem(id,author,category)
+         problemService.deleteProblem(id,author,category)
          .then (()=>{
             
             const newArr = this.state.problems.filter((el) => {

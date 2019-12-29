@@ -8,7 +8,7 @@ class Answer {
     });
   }
 
-  sendanswer(description,pic,category,problemtosolve,authorID) {
+  sendAnswer(description,pic,category,problemtosolve,authorID) {
     
     return this.answer
       .post('answers', {  text : description,pic,category, problemtosolve, author : authorID  })
